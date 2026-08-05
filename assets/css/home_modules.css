@@ -1918,3 +1918,444 @@
 /* Home Module Append */
 .home-service-widget-container { z-index: 2; }
 .home-error-breadcrumb { background: url('../img/breadcrumb/01.jpg'); }
+
+/* ==========================================================================
+   Home Page Modules: Our Process Section (Matching Reference Screenshot)
+   ========================================================================== */
+
+.process-section {
+    background-color: #ffffff;
+    background-image: radial-gradient(rgba(186, 6, 6, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-bg-glow.orb-left {
+    position: absolute;
+    top: 20%;
+    left: -100px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(186, 6, 6, 0.06) 0%, transparent 70%);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.process-bg-glow.orb-right {
+    position: absolute;
+    bottom: 10%;
+    right: -100px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.08) 0%, transparent 70%);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+/* Header */
+.process-subtitle-wrap {
+    gap: 8px;
+}
+
+.process-subtitle-wrap .sub-line {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 1px;
+}
+
+.process-subtitle-wrap .sub-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.process-main-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.process-main-title .title-highlight-red {
+    color: var(--primary-color);
+}
+
+.process-title-underline-red {
+    width: 48px;
+    height: 3.5px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.process-header-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #64748b;
+    max-width: 620px;
+    line-height: 1.6;
+}
+
+/* Flow Container & Dotted Line */
+.process-flow-container {
+    position: relative;
+    margin-top: 35px;
+}
+
+.process-dotted-line-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Process Card Container & Step Badges */
+.process-card-wrap {
+    position: relative;
+    padding-top: 24px;
+}
+
+.process-step-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(186, 6, 6, 0.35);
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    border: 2.5px solid var(--white);
+}
+
+.process-arrow-indicator {
+    position: absolute;
+    top: 31px;
+    right: -13px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+    box-shadow: 0 2px 8px rgba(186, 6, 6, 0.3);
+    border: 1.5px solid var(--white);
+}
+
+/* Background Element Animations */
+@keyframes pinFloatPulse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 4px 6px rgba(186, 6, 6, 0.15));
+    }
+    50% {
+        transform: translateY(-12px) scale(1.08);
+        filter: drop-shadow(0 12px 14px rgba(186, 6, 6, 0.35));
+    }
+}
+
+@keyframes mapDotPulse {
+    0%, 100% {
+        opacity: 0.10;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.22;
+        transform: scale(1.03);
+    }
+}
+
+@keyframes truckDriveFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(1.5deg);
+    }
+}
+
+@keyframes paperPlaneFly {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-8px, -12px) rotate(-6deg);
+    }
+}
+
+/* Background Graphic Positioners with Animations */
+.process-bg-truck-road {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    z-index: 1;
+    animation: truckDriveFloat 5s ease-in-out infinite;
+}
+
+.process-bg-world-map {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    z-index: 1;
+    animation: mapDotPulse 6s ease-in-out infinite;
+}
+
+.process-bg-right-pin {
+    position: absolute;
+    top: 15%;
+    right: 12%;
+    z-index: 1;
+    animation: pinFloatPulse 3.5s ease-in-out infinite;
+}
+
+/* Process Card Body with Banner Top Crest */
+.process-card-body {
+    background-color: var(--white);
+    border-radius: 40px 40px 20px 20px / 24px 24px 20px 20px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    padding: 34px 18px 24px 18px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.process-card-wrap:hover .process-card-body {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(186, 6, 6, 0.12) !important;
+    border-color: rgba(186, 6, 6, 0.25);
+}
+
+/* Icon Circle */
+.process-icon-circle {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(186, 6, 6, 0.3);
+    margin-bottom: 16px;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease;
+}
+
+.process-card-wrap:hover .process-icon-circle {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #880000 100%);
+}
+
+.process-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.process-card-red-line {
+    width: 24px;
+    height: 2.5px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    margin: 8px auto 12px auto;
+    transition: width 0.3s ease;
+}
+
+.process-card-wrap:hover .process-card-red-line {
+    width: 42px;
+}
+
+.process-card-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12.5px;
+    font-weight: 400;
+    color: #64748b;
+    line-height: 1.55;
+}
+
+/* Bottom Red Arc Footer Banner */
+.process-card-red-bottom-arc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 0 0 20px 20px;
+    clip-path: ellipse(65% 100% at 50% 100%);
+    transition: height 0.3s ease;
+}
+
+.process-card-wrap:hover .process-card-red-bottom-arc {
+    height: 14px;
+}
+
+/* Bottom CTA Safety Guarantee Bar */
+.process-cta-bar {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    padding: 20px 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.safety-shield-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(186, 6, 6, 0.25);
+}
+
+.safety-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16.5px;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.safety-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.btn-process-cta {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(186, 6, 6, 0.3);
+}
+
+.btn-process-cta:hover {
+    background-color: #900404;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(186, 6, 6, 0.4);
+}
+
+.process-paper-plane {
+    position: absolute;
+    bottom: 5px;
+    right: 18px;
+    pointer-events: none;
+    z-index: 2;
+    animation: paperPlaneFly 4s ease-in-out infinite;
+}
+
+/* Scroll Entrance Animation Rules for Process Section */
+.process-section .process-header,
+.process-section .process-card-wrap,
+.process-section .process-cta-bar {
+    opacity: 0;
+    transition: transform 0.65s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.65s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.process-section .process-header {
+    transform: translateY(-25px);
+}
+
+.process-section .process-card-wrap {
+    transform: translateY(40px) scale(0.92);
+}
+
+.process-section .process-cta-bar {
+    transform: translateY(30px);
+}
+
+/* Triggered State when Scrolled into View */
+.process-section.in-view .process-header,
+.process-section.in-view .process-cta-bar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.process-section.in-view .process-card-wrap {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Staggered Wave Delays for 6 Process Cards */
+.process-section.in-view .process-card-wrap:nth-child(1) { transition-delay: 0.10s; }
+.process-section.in-view .process-card-wrap:nth-child(2) { transition-delay: 0.18s; }
+.process-section.in-view .process-card-wrap:nth-child(3) { transition-delay: 0.26s; }
+.process-section.in-view .process-card-wrap:nth-child(4) { transition-delay: 0.34s; }
+.process-section.in-view .process-card-wrap:nth-child(5) { transition-delay: 0.42s; }
+.process-section.in-view .process-card-wrap:nth-child(6) { transition-delay: 0.50s; }
+.process-section.in-view .process-cta-bar { transition-delay: 0.60s; }
+
+/* Responsive Grid Breaks */
+@media (max-width: 991px) {
+    .process-main-title {
+        font-size: 28px;
+    }
+    .process-card-wrap {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .process-section {
+        padding: 40px 0;
+    }
+    .process-main-title {
+        font-size: 24px;
+    }
+    .process-header-desc {
+        font-size: 13px;
+    }
+    .process-card-body {
+        padding: 24px 12px 18px 12px;
+    }
+    .process-icon-circle {
+        width: 54px;
+        height: 54px;
+    }
+    .process-icon-circle svg {
+        width: 26px;
+        height: 26px;
+    }
+    .process-card-title {
+        font-size: 14px;
+    }
+    .process-card-desc {
+        font-size: 11.5px;
+    }
+}

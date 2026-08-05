@@ -143,40 +143,6 @@ $navbar_services = [
     </div>
 </section>
 
-<!-- Scroll Trigger Script -->
-<script>
-(function() {
-    function setupServicesObserver() {
-        var section = document.querySelector('.services-section');
-        if (!section) return;
-
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function(entries, obs) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        section.classList.add('in-view');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, {
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.30
-            });
-
-            observer.observe(section);
-        } else {
-            section.classList.add('in-view');
-        }
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupServicesObserver);
-    } else {
-        setupServicesObserver();
-    }
-})();
-</script>
-
 
 
 

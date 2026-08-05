@@ -300,21 +300,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Smooth Scroll Reveal Observer on Scroll Down
-  const revealElements = document.querySelectorAll('.footer-col-box, .footer-contact-row, .footer-feature-glass-box, .hero-bottom-feat-card, section, .service-card, .city-card');
+  // Centralized Global Scroll Entrance Observer for All Sections
+  const revealElements = document.querySelectorAll('.services-section, .process-section, .about-section, .review-widget, .faq-section, .footer-col-box, .footer-contact-row, .footer-feature-glass-box, .hero-bottom-feat-card, section, .service-card, .city-card');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
           entry.target.classList.add('scroll-revealed');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.20, rootMargin: '0px 0px -40px 0px' });
 
     revealElements.forEach(el => {
       el.classList.add('scroll-reveal-item');
       revealObserver.observe(el);
+    });
+  } else {
+    revealElements.forEach(el => {
+      el.classList.add('in-view');
+      el.classList.add('scroll-revealed');
     });
   }
 });
