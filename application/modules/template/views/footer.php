@@ -4,6 +4,11 @@ $floatingPhoneNumber = preg_replace('/\D+/', '', (string) $phone);
 $floatingWhatsappLink = !empty($whatsapphtml)
   ? $whatsapphtml
   : (!empty($floatingPhoneNumber) ? 'https://wa.me/' . $floatingPhoneNumber : '#');
+
+$floatingPhoneNumber1 = !empty($phone1) ? preg_replace('/\D+/', '', (string) $phone1) : '';
+$floatingWhatsappLink1 = !empty($whatsapphtml1)
+  ? $whatsapphtml1
+  : (!empty($floatingPhoneNumber1) ? 'https://wa.me/' . $floatingPhoneNumber1 : '#');
 ?>
 <footer class="footer-section">
 
@@ -94,24 +99,44 @@ $floatingWhatsappLink = !empty($whatsapphtml)
             <h5 class="footer-column-title">CONTACT US</h5>
             <div class="footer-title-line"></div>
             <div class="footer-contact-list d-flex flex-column gap-3">
+              
+              <!-- Addresses Card (Head + Branch Office) -->
               <div class="footer-contact-row d-flex align-items-start gap-3">
-                <div class="footer-contact-gold-icon"><i class="bi bi-geo-alt-fill"></i></div>
-                <div class="footer-contact-text">
-                  <span><?= $address ?></span>
+                <div class="footer-contact-gold-icon mt-1"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="footer-contact-text w-100">
+                  <div class="contact-addr-block pb-2 mb-2" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
+                    <strong class="d-block text-gold mb-1" style="font-size: 11px; letter-spacing: 0.5px;">HEAD OFFICE:</strong>
+                    <span style="font-size: 12px; line-height: 1.45; display: block; color: rgba(255,255,255,0.92);"><?= $address ?></span>
+                  </div>
+                  <?php if (!empty($branch_address)): ?>
+                  <div class="contact-addr-block">
+                    <strong class="d-block text-gold mb-1" style="font-size: 11px; letter-spacing: 0.5px;">BRANCH OFFICE:</strong>
+                    <span style="font-size: 12px; line-height: 1.45; display: block; color: rgba(255,255,255,0.92);"><?= $branch_address ?></span>
+                  </div>
+                  <?php endif; ?>
                 </div>
               </div>
-              <a href="<?= $phonehtml ?>" class="footer-contact-row d-flex align-items-center gap-3 text-white text-decoration-none">
+
+              <!-- Phone Numbers Card (Primary + Secondary) -->
+              <div class="footer-contact-row d-flex align-items-center gap-3">
                 <div class="footer-contact-gold-icon"><i class="bi bi-telephone-fill"></i></div>
-                <div class="footer-contact-text">
-                  <span><?= $phone ?></span>
+                <div class="footer-contact-text d-flex flex-wrap align-items-center gap-2">
+                  <a href="<?= $phonehtml ?>" class="text-white text-decoration-none font-weight-bold" style="font-size: 13px;"><?= $phone ?></a>
+                  <?php if (!empty($phone1)): ?>
+                  <span class="text-gold opacity-75">•</span>
+                  <a href="<?= isset($phonehtml1) && !empty($phonehtml1) ? $phonehtml1 : 'tel:' . preg_replace('/\D+/', '', $phone1) ?>" class="text-white text-decoration-none font-weight-bold" style="font-size: 13px;"><?= $phone1 ?></a>
+                  <?php endif; ?>
                 </div>
-              </a>
+              </div>
+
+              <!-- Email Card -->
               <a href="<?= $mailhtml ?>" class="footer-contact-row d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="footer-contact-gold-icon"><i class="bi bi-envelope-fill"></i></div>
                 <div class="footer-contact-text">
-                  <span><?= $mail ?></span>
+                  <span style="font-size: 13px;"><?= $mail ?></span>
                 </div>
               </a>
+
             </div>
           </div>
         </div>
@@ -215,15 +240,35 @@ $floatingWhatsappLink = !empty($whatsapphtml)
 <!-- Left Side Speed-Dial Floating Hamburger Button (Call & WhatsApp on Click) -->
 <div class="floating-contact-left" id="floatSpeedDial">
   <div class="float-popout-actions">
-    <a href="<?= $phonehtml ?>" class="float-popout-btn float-popout-call" title="Call Now" aria-label="Call <?= $company3 ?> now">
-      <i class="bi bi-telephone-fill"></i>
-      <span class="float-label">Call Now</span>
-    </a>
     
-    <a href="<?= $floatingWhatsappLink ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp Us" aria-label="Message <?= $company3 ?> on WhatsApp">
-      <i class="bi bi-whatsapp"></i>
-      <span class="float-label">WhatsApp Us</span>
+    <!-- Phone 1 (Primary Call) -->
+    <a href="<?= $phonehtml ?>" class="float-popout-btn float-popout-call" title="Call <?= $phone ?>" aria-label="Call <?= $company3 ?> <?= $phone ?>">
+      <i class="bi bi-telephone-fill"></i>
+      <span class="float-label">Call <?= $phone ?></span>
     </a>
+
+    <!-- Phone 2 (Alternate Call) -->
+    <?php if (!empty($phone1)): ?>
+    <a href="<?= isset($phonehtml1) && !empty($phonehtml1) ? $phonehtml1 : 'tel:' . preg_replace('/\D+/', '', $phone1) ?>" class="float-popout-btn float-popout-call" title="Call <?= $phone1 ?>" aria-label="Call <?= $company3 ?> <?= $phone1 ?>">
+      <i class="bi bi-telephone-fill"></i>
+      <span class="float-label">Call <?= $phone1 ?></span>
+    </a>
+    <?php endif; ?>
+    
+    <!-- WhatsApp 1 (Primary WhatsApp) -->
+    <a href="<?= $floatingWhatsappLink ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp <?= $phone ?>" aria-label="Message <?= $company3 ?> <?= $phone ?> on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+      <span class="float-label">WhatsApp <?= $phone ?></span>
+    </a>
+
+    <!-- WhatsApp 2 (Alternate WhatsApp) -->
+    <?php if (!empty($phone1)): ?>
+    <a href="<?= $floatingWhatsappLink1 ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp <?= $phone1 ?>" aria-label="Message <?= $company3 ?> <?= $phone1 ?> on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+      <span class="float-label">WhatsApp <?= $phone1 ?></span>
+    </a>
+    <?php endif; ?>
+
   </div>
 
   <!-- Main Floating Hamburger Button Trigger -->

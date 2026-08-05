@@ -51,14 +51,14 @@ class MX_Controller
         $this->load = clone load_class('Loader');
         $this->load->initialize($this);
 
-        $this->comp['phone'] = '+91 0000000000';
-        $this->comp['phonehtml'] = 'tel:+910000000000';
-        $this->comp['phone1'] = '+91 0000000000';
-        $this->comp['phonehtml1'] = 'tel:+910000000000';
+        $this->comp['phone'] = '+91 9773950025';
+        $this->comp['phonehtml'] = 'tel:+919773950025';
+        $this->comp['phone1'] = '+91 8796338791';
+        $this->comp['phonehtml1'] = 'tel:+918796338791';
         $this->comp['supportmail'] = 'support@mycompany.com';
         $this->comp['replyToMail'] = 'support@mycompany.com';
-        $this->comp['mail'] = 'support@mycompany.com';    
-        $this->comp['mailhtml'] = "mailto:support@mycompany.com";
+        $this->comp['mail'] = 'Info@elitepackersandmovers.com';    
+        $this->comp['mailhtml'] = "mailto:Info@elitepackersandmovers.com";
         $this->comp['company3'] = 'Elite Packers and Movers';
         $this->comp['companydomain'] = 'mycompany.com';
 
@@ -67,14 +67,22 @@ class MX_Controller
         $this->comp['instagramhtml'] = "";
         $this->comp['twitterhtml'] = "";
         $this->comp['linkedinhtml'] = "";
-        $this->comp['whatsapphtml'] = "https://wa.me/910000000000";
+        $this->comp['whatsapphtml'] = "https://wa.me/919773950025";
+        $this->comp['whatsapphtml1'] = "https://wa.me/918796338791";
 
-        $this->comp['address'] = "Shop No.17, Building No.2, Deeplaxmi Rajaram Residency, Kalher, Bhiwandi, Mumbai, Pin Code- 421302";
-        $this->comp['address1'] = "Shop No.17, Building No.2, Deeplaxmi Rajaram Residency";
-        $this->comp['address2'] = "Kalher, Bhiwandi, Mumbai, Pin Code- 421302";
-        $this->comp['addressRegion'] = "Mumbai";
-        $this->comp['postalCode'] = "421302";
-        $this->comp['companystate'] = "Maharashtra";
+        $this->comp['address'] = "F-10/101, Sector 15, Pocket 10, Sector 15F, Rohini, New Delhi, Delhi, 110089";
+        $this->comp['address1'] = "F-10/101, Sector 15, Pocket 10";
+        $this->comp['address2'] = "Sector 15F, Rohini, New Delhi, Delhi, 110089";
+        $this->comp['addressRegion'] = "New Delhi";
+        $this->comp['postalCode'] = "110089";
+        $this->comp['companystate'] = "Delhi";
+
+        $this->comp['branch_address'] = "G/F FRONT SIDE ,HOUSE NUMBER 452 , KH NO ,376 ,VILLAGE BHARTAL DWARKA SECTOR 26,NEW DELHI-110077";
+        $this->comp['branch_address1'] = "G/F FRONT SIDE ,HOUSE NUMBER 452 , KH NO ,376";
+        $this->comp['branch_address2'] = "VILLAGE BHARTAL DWARKA SECTOR 26, NEW DELHI-110077";
+        $this->comp['branch_postalCode'] = "110077";
+        $this->comp['branch_companystate'] = "Delhi";
+
         $this->comp['themeColor'] = "#E21B22";
 
         $this->comp['experience'] = "40+";
