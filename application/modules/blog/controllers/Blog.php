@@ -62,8 +62,9 @@ class Blog extends MX_Controller {
         $data['total'] = $total_rows;
         $data['recent_posts'] = array_slice($all_blogs, 0, 5);
 
-        $data['title'] = "Official Blog of ".$this->comp['company3']." India";
-        $data['description'] = "Latest blog of ".$this->comp['company3'];
+        $data['title'] = "Relocation & Shifting Guide Blog | " . $this->comp['company3'];
+        $data['description'] = "Read expert articles on packing tips, house shifting guides, office relocation insights, and logistics news from " . $this->comp['company3'] . ".";
+        $data['keywords'] = "relocation blog, shifting tips, house moving guide, packers movers articles, packing advice";
         $data['module'] = "blog";
         $data['view_file'] = "blog"; 
 
@@ -98,8 +99,9 @@ class Blog extends MX_Controller {
             $data['query'] = [$selected_blog];
             $data['recent_posts'] = array_slice(array_reverse($all_blogs), 0, 5);
             
-            $data['title'] = ucfirst($selected_blog->title);
-            $data['description'] = word_limiter(strip_tags($selected_blog->description), 200);
+            $data['title'] = ucfirst($selected_blog->title) . " | " . $this->comp['company3'];
+            $data['description'] = character_limiter(trim(preg_replace('/\s+/', ' ', strip_tags($selected_blog->description))), 155);
+            $data['keywords'] = "packers movers guide, " . strtolower($selected_blog->title) . ", relocation advice";
             
             $image_file = $selected_blog->image;
             $data['img'] = ($image_file && file_exists(FCPATH . 'uploads/blogs/' . $image_file)) ? base_url('uploads/blogs/'.$image_file) : base_url('assets/images/about/packers_movers.jpg');

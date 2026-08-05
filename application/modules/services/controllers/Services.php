@@ -9,8 +9,9 @@ class Services extends MX_Controller
 
     function homeShifting()
     {
-        $data['title'] = "Best Home Shifting Services | " . $this->comp['company3'];
-        $data['description'] = "Get reliable, safe, and professional home shifting services from " . $this->comp['company3'] . ".";
+        $data['title'] = "House Shifting & Household Relocation Services | " . $this->comp['company3'];
+        $data['description'] = "Professional home shifting services by " . $this->comp['company3'] . ". Complete packing, safe transportation, unpacking, & door-to-door household relocation across India.";
+        $data['keywords'] = "home shifting services, house moving, household relocation, domestic shifting, " . $this->comp['company3'];
         $data['module'] = "services";
         $data['view_file'] = "home_shifting";
         echo Modules::run('template/layout2', $data);
@@ -18,8 +19,9 @@ class Services extends MX_Controller
 
     function office()
     {
-        $data['title'] = "Professional Office Relocation Services | " . $this->comp['company3'];
-        $data['description'] = "Smooth and secure office shifting services by " . $this->comp['company3'] . ".";
+        $data['title'] = "Corporate & Office Relocation Services | " . $this->comp['company3'];
+        $data['description'] = "Seamless office relocation & commercial shifting services by " . $this->comp['company3'] . ". Efficient IT equipment handling, minimal business downtime, & safe delivery.";
+        $data['keywords'] = "office relocation, commercial shifting, corporate movers, office moving company, " . $this->comp['company3'];
         $data['module'] = "services";
         $data['view_file'] = "office";
         echo Modules::run('template/layout2', $data);
@@ -27,8 +29,9 @@ class Services extends MX_Controller
 
     function bike()
     {
-        $data['title'] = "Reliable Bike Transportation Services | " . $this->comp['company3'];
-        $data['description'] = "Hire trusted two-wheeler and bike shifting services from " . $this->comp['company3'] . ".";
+        $data['title'] = "Two Wheeler & Bike Transportation Services | " . $this->comp['company3'];
+        $data['description'] = "Safe bike transportation & two-wheeler shipping services by " . $this->comp['company3'] . ". Specialized scratch-proof packing and insured nationwide transit.";
+        $data['keywords'] = "bike transportation, two wheeler shifting, motorcycle carrier, bike shipping India, " . $this->comp['company3'];
         $data['module'] = "services";
         $data['view_file'] = "bike";
         echo Modules::run('template/layout2', $data);
@@ -36,8 +39,9 @@ class Services extends MX_Controller
 
     function car()
     {
-        $data['title'] = "Safe Car Transportation Services | " . $this->comp['company3'];
-        $data['description'] = "Secure car carrier and transportation services by " . $this->comp['company3'] . ".";
+        $data['title'] = "Car Carrier & Vehicle Transportation Services | " . $this->comp['company3'];
+        $data['description'] = "Enclosed car carrier & vehicle transportation services by " . $this->comp['company3'] . ". Door-to-door auto transport with real-time tracking and full insurance coverage.";
+        $data['keywords'] = "car transportation, car carrier services, vehicle transport, auto shipping company, " . $this->comp['company3'];
         $data['module'] = "services";
         $data['view_file'] = "car";
         echo Modules::run('template/layout2', $data);
@@ -45,8 +49,9 @@ class Services extends MX_Controller
 
     function packingMoving()
     {
-        $data['title'] = "Packing and Moving Services | " . $this->comp['company3'];
-        $data['description'] = "Secure packing and moving services by " . $this->comp['company3'] . ".";
+        $data['title'] = "Professional Packing and Moving Services | " . $this->comp['company3'];
+        $data['description'] = "High-quality packing and moving services by " . $this->comp['company3'] . ". Premium materials, bubble wrap, sturdy boxes, and expert handlers for safe transit.";
+        $data['keywords'] = "packing and moving, professional packing, relocation services, shifting company, " . $this->comp['company3'];
         $data['module'] = "services";
         $data['view_file'] = "packing_moving";
         echo Modules::run('template/layout2', $data);
@@ -54,8 +59,9 @@ class Services extends MX_Controller
 
     function loadingUnloading()
     {
-        $data['title'] = "Loading Unloading Services | " . $this->comp['company3'];
-        $data['description'] = "Safe and professional loading and unloading services by " . $this->comp['company3'] . ".";
+        $data['title'] = "Safe Loading and Unloading Services | " . $this->comp['company3'];
+        $data['description'] = "Reliable loading and unloading services by " . $this->comp['company3'] . ". Trained labor force ensuring heavy household goods and delicate items are handled damage-free.";
+        $data['keywords'] = "loading unloading services, heavy lifting movers, goods loading staff, labor for moving, " . $this->comp['company3'];
         $data['module'] = "services";
         $data['view_file'] = "loading_unloading";
         echo Modules::run('template/layout2', $data);

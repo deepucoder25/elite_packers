@@ -3,8 +3,9 @@ class About extends MX_Controller
 {
     function index()
     {
-        $data['title'] = "About Us | " . $this->comp['company3'];
-        $data['description'] = "Learn more about " . $this->comp['company3'] . ", our <?= $experience ?> Years Legacy, infrastructure, expert team, mission, and vision in the packing and moving industry.";
+        $data['title'] = "About Us - Reliable Packers & Movers | " . $this->comp['company3'];
+        $data['description'] = "Learn about " . $this->comp['company3'] . ", India's trusted packing and moving company. Discover our journey, experienced team, mission, and safe relocation solutions.";
+        $data['keywords'] = "about packers movers, reliable shifting company, trusted relocation services, " . $this->comp['company3'];
         $data['module'] = "about";
         $data['view_file'] = "about";
         echo Modules::run('template/layout2', $data);
@@ -12,8 +13,9 @@ class About extends MX_Controller
 
     function choose()
     {
-        $data['title'] = "Why Choose Us | " . $this->comp['company3'];
-        $data['description'] = "Discover why customers trust " . $this->comp['company3'] . " for safe, reliable, and transparently priced shifting, vehicle transport, and corporate relocation services.";
+        $data['title'] = "Why Choose Us - Trusted Shifting Services | " . $this->comp['company3'];
+        $data['description'] = "Discover why thousands trust " . $this->comp['company3'] . " for home shifting, vehicle transport, and office relocation with transparent pricing and top safety standards.";
+        $data['keywords'] = "why choose us, trusted movers, best packing moving benefits, secure relocation services";
         $data['module'] = "about";
         $data['view_file'] = "choose";
         echo Modules::run('template/layout2', $data);
@@ -22,7 +24,8 @@ class About extends MX_Controller
     function faqs()
     {
         $data['title'] = "Frequently Asked Questions (FAQs) | " . $this->comp['company3'];
-        $data['description'] = "Get answers to common queries about packing and shifting charges, transit insurance, delivery timeline, tracking, and restricted items at " . $this->comp['company3'] . ".";
+        $data['description'] = "Get answers to common queries about house shifting charges, transit insurance, packing material, delivery timelines, and tracking at " . $this->comp['company3'] . ".";
+        $data['keywords'] = "packers movers FAQ, house shifting charges questions, relocation insurance FAQ, moving tips";
         $data['module'] = "about";
         $data['view_file'] = "faqs";
         echo Modules::run('template/layout2', $data);
@@ -30,8 +33,9 @@ class About extends MX_Controller
 
     function testimonials()
     {
-        $data['title'] = "Customer Reviews & Testimonials | " . $this->comp['company3'];
-        $data['description'] = "Read genuine client testimonials and feedback about " . $this->comp['company3'] . " home shifting, vehicle transportation, and office relocation services.";
+        $data['title'] = "Customer Testimonials & Ratings | " . $this->comp['company3'];
+        $data['description'] = "Read genuine client testimonials and feedback about " . $this->comp['company3'] . ". See how we deliver hassle-free home, vehicle, and office relocations across India.";
+        $data['keywords'] = "packers movers reviews, customer testimonials, shifting service feedback, client ratings";
         $data['module'] = "about";
         $data['view_file'] = "testimonials";
         echo Modules::run('template/layout2', $data);
@@ -46,7 +50,8 @@ class About extends MX_Controller
     function privacy()
     {
         $data['title'] = "Privacy Policy | " . $this->comp['company3'];
-        $data['description'] = "How " . $this->comp['company3'] . " handles and protects your personal data during your relocation.";
+        $data['description'] = "Read the Privacy Policy of " . $this->comp['company3'] . ". We are committed to protecting your personal information and ensuring secure data handling during relocation.";
+        $data['keywords'] = "privacy policy, data protection, " . $this->comp['company3'] . " policy";
         $data['module'] = "about";
         $data['view_file'] = "privacy";
         echo Modules::run('template/layout2', $data);
@@ -54,8 +59,9 @@ class About extends MX_Controller
 
     function terms()
     {
-        $data['title'] = "Terms & Conditions | " . $this->comp['company3'];
-        $data['description'] = "The terms and conditions governing our relocation services at " . $this->comp['company3'] . ".";
+        $data['title'] = "Terms and Conditions | " . $this->comp['company3'];
+        $data['description'] = "Review the terms and conditions for booking household, office, and vehicle relocation services with " . $this->comp['company3'] . ".";
+        $data['keywords'] = "terms and conditions, service agreement, moving guidelines, shifting policy";
         $data['module'] = "about";
         $data['view_file'] = "terms";
         echo Modules::run('template/layout2', $data);

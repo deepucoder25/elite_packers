@@ -64,8 +64,9 @@ class Reviews extends MX_Controller
         
         $data['reviews'] = $query;
         $data['pagination'] = $this->pagination->create_links();
-        $data['title'] = "Customer Reviews & Ratings | " . $this->comp['company3'];
-        $data['description'] = "Detailed feedback and ratings from our satisfied clients. Read real reviews about our freight forwarding services at " . $this->comp['company3'] . ".";
+        $data['title'] = "Verified Customer Reviews & Ratings | " . $this->comp['company3'];
+        $data['description'] = "Read verified customer reviews, ratings, and real client feedback about " . $this->comp['company3'] . ". Check our service quality for home and vehicle relocation.";
+        $data['keywords'] = "customer reviews, packers movers ratings, client feedback, genuine shifting reviews, " . $this->comp['company3'] . " ratings";
         $data['module'] = "reviews";
         $data['view_file'] = "reviews";
         echo Modules::run('template/layout2', $data);

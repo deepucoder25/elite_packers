@@ -4,16 +4,18 @@ class Packers_movers extends MX_Controller
 
     function index()
     {
-        $data['title'] = "All India Service " . $this->comp['company3'];
-        $data['description'] = $this->comp['company3'] . " is best packers and movers service provider.";
+        $data['title'] = "All India Packers & Movers Services | " . $this->comp['company3'];
+        $data['description'] = "Nationwide packing and moving services by " . $this->comp['company3'] . ". Safe house shifting, vehicle shipping, and storage solutions across all Indian states.";
+        $data['keywords'] = "all India packers movers, intercity shifting, nationwide relocation, state to state moving, " . $this->comp['company3'];
         $data['module'] = "packers_movers";
         $data['view_file'] = "states";
         echo Modules::run('template/layout2', $data);
     }
     function state()
     {
-        $data['title'] = "All India Service " . $this->comp['company3'];
-        $data['description'] = $this->comp['company3'] . " is best packers and movers service provider.";
+        $data['title'] = "All India Packers & Movers Services | " . $this->comp['company3'];
+        $data['description'] = "Nationwide packing and moving services by " . $this->comp['company3'] . ". Safe house shifting, vehicle shipping, and storage solutions across all Indian states.";
+        $data['keywords'] = "all India packers movers, intercity shifting, nationwide relocation, state to state moving, " . $this->comp['company3'];
         $data['module'] = "packers_movers";
         $data['view_file'] = "states";
         echo Modules::run('template/layout2', $data);
@@ -27,9 +29,9 @@ class Packers_movers extends MX_Controller
         $state = ucwords(str_replace("-", " ", $state));
         $data = array(
             "state" => $state,
-            "title" => $this->comp['company3'] . " in $state",
-            "description" => $this->comp['company3'] . " in $state",
-            "keywords" => "$state " . $this->comp['company3'] . " in $state",
+            "title" => "Top Packers & Movers in $state | " . $this->comp['company3'],
+            "description" => "Best packers and movers in $state by " . $this->comp['company3'] . ". Reliable local & long-distance household shifting, office moving, and car transport services.",
+            "keywords" => "packers and movers in $state, movers packers $state, shifting services in $state, best movers $state, " . $this->comp['company3'],
             "module" => "packers_movers",
             "view_file" => "city_list",
         );
@@ -69,10 +71,7 @@ class Packers_movers extends MX_Controller
             'img' => base_url('assets') . "/images/state/google/$statelink.png",
             "title" => $seo['title'],
             "description" => $seo['desc'],
-            "keywords" => "movers and packers in $city, Movers Packers $city, Movers near me $city, Packers and movers in $city, Moving companies near me $city, Movers $city, Packers and movers near me $city",
-            "Removal companies in $city, Moving services in $city, Cheap movers in $city, Local movers in $city, Local moving companies in $city",
-            "$city best moving companies, House movers $city, Packers movers $city, Moving services near $city, House removals $city, Cheap moving companies in $city",
-            "Professional movers in $city, House movers near $city, Cheap movers $city, Best packers and movers in $city, Affordable movers $city, International movers from $city, International moving companies in $city",
+            "keywords" => "movers and packers in $city, Movers Packers $city, Movers near me $city, Packers and movers in $city, Moving companies near me $city, Movers $city, Packers and movers near me $city, Removal companies in $city, Moving services in $city, Cheap movers in $city, Local movers in $city, Local moving companies in $city, $city best moving companies, House movers $city, Packers movers $city, Moving services near $city, House removals $city, Cheap moving companies in $city, Professional movers in $city, House movers near $city, Cheap movers $city, Best packers and movers in $city, Affordable movers $city",
             "module" => "packers_movers",
             "view_file" => "view_service",
         );
