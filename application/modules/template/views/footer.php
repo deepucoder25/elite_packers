@@ -254,6 +254,24 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Smooth Scroll Reveal Observer on Scroll Down
+  const revealElements = document.querySelectorAll('.footer-col-box, .footer-contact-row, .footer-feature-glass-box, .hero-bottom-feat-card, section, .service-card, .city-card');
+  if ('IntersectionObserver' in window && revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => {
+      el.classList.add('scroll-reveal-item');
+      revealObserver.observe(el);
+    });
+  }
 });
 </script>
 </body>

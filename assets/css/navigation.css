@@ -130,22 +130,42 @@ html, body {
 }
 
 /* ==========================================================================
-   Main Sticky Header
+   Main Header (Transparent Overlay on Hero -> White Fixed on Scroll)
    ========================================================================== */
 .main-header {
-    position: sticky;
-    top: 0;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    width: 100%;
     z-index: 999;
-    background: var(--white);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
     height: 80px;
     display: flex;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
+}
+
+@media (max-width: 767px) {
+    .main-header {
+        top: 0;
+    }
 }
 
 .main-header.scrolled {
-    box-shadow: 0 10px 30px rgba(3, 15, 38, 0.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+    height: 75px;
 }
 
 .brand-wrap {
@@ -227,8 +247,9 @@ html, body {
    Hamburger Button
    ========================================================================== */
 .hamburger {
-    background: #ffffff;
-    border: 1.5px solid #cbd5e1;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
     border-radius: 12px;
     width: 44px;
     height: 44px;
@@ -239,8 +260,8 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
@@ -248,10 +269,20 @@ html, body {
     display: block;
     width: 20px;
     height: 2.5px;
-    background-color: var(--text-dark);
+    background-color: var(--accent-gold);
     border-radius: 4px;
     transition: all 0.25s ease;
     margin: 0 auto;
+}
+
+.main-header.scrolled .hamburger {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.main-header.scrolled .hamburger span {
+    background-color: var(--text-dark);
 }
 
 .hamburger span:nth-child(2) {

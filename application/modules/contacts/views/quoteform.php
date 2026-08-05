@@ -1,110 +1,95 @@
-  <div class="hero-quote-card-container" itemscope itemtype="https://schema.org/QuoteAction">
-            <!-- Card Header -->
-            <div class="hero-quote-header">
-              <h3 class="hero-quote-title" itemprop="name">Get Your Best Moving Quote</h3>
-              <p class="hero-quote-subtitle" itemprop="description">Quick, Fast & Free Estimates</p>
-            </div>
-            
-            <div class="hero-quote-white-card">
-              <!-- Card Body / Form -->
-              <div class="card-body-form">
-                <form id="quoteform" class="ajax-form" data-url="<?php echo site_url('contacts/booking') ?>" data-result="quoteformresults" onsubmit="return false;">
-                  
-                  <div class="form-row-custom">
-                    <!-- Name Input -->
-                    <div class="input-wrap-custom">
-                      <i class="bi bi-person input-icon-custom"></i>
-                      <input type="text" name="name" class="form-control-custom" placeholder="Your Name" >
-                    </div>
-                    
-                    <!-- Phone Input -->
-                    <div class="input-wrap-custom">
-                      <i class="bi bi-telephone input-icon-custom"></i>
-                      <input type="tel" name="phone" class="form-control-custom" placeholder="Phone Number" >
-                    </div>
-                    
-                    <!-- Email Input -->
-                    <div class="input-wrap-custom">
-                      <i class="bi bi-envelope input-icon-custom"></i>
-                      <input type="email" name="email" class="form-control-custom" placeholder="Email Address" >
-                    </div>
-                    
-                    <!-- Select Service -->
-                    <div class="input-wrap-custom select-wrap-custom">
-                      <span class="select-label-custom">Select Service</span>
-                      <select name="mtype" class="form-select-custom" >
-                        <option value="" disabled selected>Select Service</option>
-                        <option>Household Relocation</option>
-                        <option>Office Relocation</option>
-                        <option>Car/Bike Shifting</option>
-                        <option>Warehousing</option>
-                      </select>
-                    </div>
-                    
-                    <!-- Moving From -->
-                    <div class="input-wrap-custom half-width-mobile">
-                      <i class="bi bi-geo-alt input-icon-custom"></i>
-                      <input type="text" name="mfrom" class="form-control-custom" value="<?= @$city ?>" placeholder="Moving From" >
-                    </div>
-                    
-                    <!-- Moving To -->
-                    <div class="input-wrap-custom half-width-mobile">
-                      <i class="bi bi-geo-alt input-icon-custom"></i>
-                      <input type="text" name="mto" class="form-control-custom" placeholder="Moving To" >
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn-submit-custom">
-                      <i class="bi bi-send submit-btn-icon-desktop"></i>
-                      <i class="bi bi-file-earmark-text submit-btn-icon-mobile"></i>
-                      <span>Get Quote</span>
-                    </button>
-                  </div>
-                  
-                  <div id="quoteformresults"></div>
-                </form>
-              </div>
-              
-              <!-- Card Footer / Trust Badge Bar (Desktop Only) -->
-              <div class="card-footer-trust d-none d-lg-flex justify-content-between align-items-center">
-                <div class="trust-item">
-                  <i class="bi bi-shield-check trust-icon"></i>
-                  <div class="trust-text">
-                    <strong>100% Secure</strong>
-                    <span>Your data is safe with us</span>
-                  </div>
-                </div>
-                <div class="divider-vertical"></div>
-                <div class="trust-item">
-                  <i class="bi bi-clock trust-icon"></i>
-                  <div class="trust-text">
-                    <strong>Quick Response</strong>
-                    <span>We respond within 15 mins</span>
-                  </div>
-                </div>
-                <div class="divider-vertical"></div>
-                <div class="trust-item">
-                  <i class="bi bi-currency-rupee trust-icon-circle"></i>
-                  <div class="trust-text">
-                    <strong>Best Price Guarantee</strong>
-                    <span>Get the most competitive rates</span>
-                  </div>
-                </div>
-                <div class="divider-vertical"></div>
-                <div class="trust-item">
-                  <i class="bi bi-headset trust-icon"></i>
-                  <div class="trust-text">
-                    <strong>24/7 Support</strong>
-                    <span>We are here to help</span>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Mobile Security Tag (Mobile Only, Inside the Card) -->
-              <div class="mobile-security-tag d-flex d-lg-none justify-content-center align-items-center gap-2 py-3">
-                <i class="bi bi-shield-check text-primary"></i>
-                <span>100% Secure. We never share your data.</span>
-              </div>
-            </div>
+<div class="hero-form-card" itemscope itemtype="https://schema.org/QuoteAction">
+  <div class="text-center mb-3">
+    <h4 class="hero-form-title">GET A <span class="text-gold">FREE QUOTE</span></h4>
+    <div class="hero-form-line"></div>
+    <p class="hero-form-subtext">Fill in the details and we will get back to you.</p>
+  </div>
 
-          </div>
+  <form id="quoteform" class="ajax-form" data-url="<?= site_url('contacts/booking') ?>" data-result="quoteformresults" onsubmit="return false;">
+    
+    <div class="row g-2">
+      <!-- 1. Your Name -->
+      <div class="col-6">
+        <label class="hero-form-label">Your Name <span class="text-gold">*</span></label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-person input-icon"></i>
+          <input type="text" name="name" class="hero-form-input" placeholder="Your Name" required>
+        </div>
+      </div>
+
+      <!-- 2. Mobile Number -->
+      <div class="col-6">
+        <label class="hero-form-label">Mobile Number <span class="text-gold">*</span></label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-telephone input-icon"></i>
+          <input type="tel" name="phone" class="hero-form-input" placeholder="Mobile Number" required>
+        </div>
+      </div>
+
+      <!-- 3. Email Address -->
+      <div class="col-6">
+        <label class="hero-form-label">Email Address</label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-envelope input-icon"></i>
+          <input type="email" name="email" class="hero-form-input" placeholder="Email Address">
+        </div>
+      </div>
+
+      <!-- 4. Type of Move -->
+      <div class="col-6">
+        <label class="hero-form-label">Type of Move</label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-box-seam input-icon"></i>
+          <select name="mtype" class="hero-form-select">
+            <option value="" disabled selected>Type of Move</option>
+            <option>Household Relocation</option>
+            <option>Office Relocation</option>
+            <option>Car Transportation</option>
+            <option>Bike Transportation</option>
+            <option>Warehouse Storage</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 5. Moving From -->
+      <div class="col-6">
+        <label class="hero-form-label">Moving From <span class="text-gold">*</span></label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-geo-alt input-icon"></i>
+          <input type="text" name="mfrom" class="hero-form-input" value="<?= @$city ?>" placeholder="Moving From" required>
+        </div>
+      </div>
+
+      <!-- 6. Moving To -->
+      <div class="col-6">
+        <label class="hero-form-label">Moving To <span class="text-gold">*</span></label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-geo-alt input-icon"></i>
+          <input type="text" name="mto" class="hero-form-input" placeholder="Moving To" required>
+        </div>
+      </div>
+
+      <!-- 7. Moving Date -->
+      <div class="col-12">
+        <label class="hero-form-label">Moving Date</label>
+        <div class="form-icon-wrap">
+          <i class="bi bi-calendar3 input-icon"></i>
+          <input type="date" name="mdate" class="hero-form-input" placeholder="Moving Date">
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12 mt-3">
+        <button type="submit" class="btn-submit-hero-red w-100">
+          Get Free Quote &rarr;
+        </button>
+      </div>
+    </div>
+
+    <div class="text-center mt-2">
+      <small class="hero-privacy-note"><i class="bi bi-shield-check text-success me-1"></i> 100% Privacy Guaranteed</small>
+    </div>
+
+    <div id="quoteformresults" class="mt-2"></div>
+  </form>
+</div>
