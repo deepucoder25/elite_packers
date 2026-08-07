@@ -242,133 +242,59 @@
     </div>
 </section>
 
-<!-- Touch Swipe & Drag JS for Swapping Testimonial Cards -->
+<!-- Touch Swipe & Drag JS for Swapping Testimonial Cards (Optimized Minimal JS) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const track = document.getElementById('reviewsSliderTrack');
-    const prevBtn = document.querySelector('.rev-prev-btn');
-    const nextBtn = document.querySelector('.rev-next-btn');
     const dotsContainer = document.getElementById('reviewsDots');
-    
     if (!track) return;
 
-    let currentIndex = 0;
-    const cards = track.children;
-    const totalCards = cards.length;
+    let idx = 0;
+    const getPerView = () => window.innerWidth >= 992 ? 4 : (window.innerWidth >= 576 ? 2 : 1);
+    const maxIdx = () => Math.max(0, track.children.length - getPerView());
 
-    function getVisibleCardsCount() {
-        if (window.innerWidth >= 992) return 4;
-        if (window.innerWidth >= 576) return 2;
-        return 1;
+    function buildDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        const max = maxIdx();
+        for (let i = 0; i <= max; i++) {
+            let dot = document.createElement('div');
+            dot.className = 'rev-dot' + (i === idx ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dot.onclick = () => goTo(i);
+            dotsContainer.appendChild(dot);
+        }
     }
 
-    function getMaxIndex() {
-        return Math.max(0, totalCards - getVisibleCardsCount());
-    }
-
-    function updateSlider(index) {
-        const maxIndex = getMaxIndex();
-        if (index < 0) index = 0;
-        if (index > maxIndex) index = maxIndex;
-        currentIndex = index;
-
-        const cardWidth = cards[0].offsetWidth;
+    function goTo(i) {
+        idx = Math.max(0, Math.min(i, maxIdx()));
         const gap = parseInt(window.getComputedStyle(track).gap) || 16;
-        const moveAmount = currentIndex * (cardWidth + gap);
+        const cardW = track.children[0] ? track.children[0].offsetWidth : 300;
+        track.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
+        track.style.transform = `translateX(-${idx * (cardW + gap)}px)`;
 
-        track.style.transform = `translateX(-${moveAmount}px)`;
-
-        // Update Dots
         if (dotsContainer) {
-            const dots = dotsContainer.children;
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.toggle('active', i === currentIndex);
-            }
+            Array.from(dotsContainer.children).forEach((d, k) => d.classList.toggle('active', k === idx));
         }
-
-        // Update Button States
-        if (prevBtn) prevBtn.style.opacity = currentIndex === 0 ? '0.4' : '1';
-        if (nextBtn) nextBtn.style.opacity = currentIndex >= maxIndex ? '0.4' : '1';
+        const p = document.querySelector('.rev-prev-btn'), n = document.querySelector('.rev-next-btn');
+        if (p) p.style.opacity = idx === 0 ? '0.4' : '1';
+        if (n) n.style.opacity = idx >= maxIdx() ? '0.4' : '1';
     }
 
-    // Arrow Buttons
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
-    }
+    document.querySelector('.rev-next-btn')?.addEventListener('click', () => goTo(idx + 1));
+    document.querySelector('.rev-prev-btn')?.addEventListener('click', () => goTo(idx - 1));
 
-    // Dots Click
-    if (dotsContainer) {
-        dotsContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('rev-dot')) {
-                const idx = parseInt(e.target.getAttribute('data-index'));
-                updateSlider(idx);
-            }
-        });
-    }
-
-    // Touch Swipe Handling (Mobile / Tablet)
     let startX = 0;
-    let currentX = 0;
-    let isDragging = false;
-
-    track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        currentX = startX;
-        isDragging = true;
-    }, { passive: true });
-
-    track.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        currentX = e.touches[0].clientX;
-    }, { passive: true });
-
-    track.addEventListener('touchend', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        const diffX = startX - currentX;
-        if (Math.abs(diffX) > 40) {
-            if (diffX > 0) {
-                updateSlider(currentIndex + 1);
-            } else {
-                updateSlider(currentIndex - 1);
-            }
-        }
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive: true});
+    track.addEventListener('touchend', e => {
+        let endX = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : startX;
+        let diff = startX - endX;
+        if (Math.abs(diff) > 40) goTo(idx + (diff > 0 ? 1 : -1));
     });
 
-    // Mouse Drag Handling (Desktop)
-    track.addEventListener('mousedown', (e) => {
-        startX = e.clientX;
-        currentX = startX;
-        isDragging = true;
-    });
-
-    track.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        currentX = e.clientX;
-    });
-
-    track.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        const diffX = startX - currentX;
-        if (Math.abs(diffX) > 40) {
-            if (diffX > 0) {
-                updateSlider(currentIndex + 1);
-            } else {
-                updateSlider(currentIndex - 1);
-            }
-        }
-    });
-
-    track.addEventListener('mouseleave', () => {
-        isDragging = false;
-    });
-
-    window.addEventListener('resize', () => updateSlider(currentIndex));
-    updateSlider(0);
+    buildDots();
+    goTo(0);
+    window.addEventListener('resize', () => { buildDots(); goTo(idx); });
 });
 </script>
 
