@@ -1,18 +1,144 @@
-/* gallery_modules.css */
+/* ==========================================================================
+   GALLERY MODULE MODERN BOX & GRID STYLESHEET (gallery_modules.css)
+   Using navigation.css Variables: --primary-color, --accent-gold, --text-dark, --white
+   ========================================================================== */
 
-/* Photo Gallery */
-.gallery-photo-card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; border: 1px solid #eef1f6 !important; }
-.gallery-photo-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(95, 150, 24, 0.08) !important; border-color: #5f9618 !important; }
-.gallery-bg-success-soft { background-color: rgba(25, 135, 84, 0.1) !important; }
-.gallery-img-wrapper:hover .gallery-hover-overlay { opacity: 1 !important; }
-.gallery-bg-dark-50 { background-color: rgba(0, 0, 0, 0.4) !important; }
-.gallery-transition-all { transition: all 0.3s ease-in-out; }
+/* 1. Category Filter Nav Pills */
+.gallery-filter-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
 
-.gallery-img { height: 220px; object-fit: cover; }
-.gallery-icon-lg { font-size: 2rem; }
-.gallery-badge-sm { font-size: 0.75rem; }
-.gallery-title-sm { font-size: 1rem; }
+.gallery-filter-btn {
+    background: #ffffff;
+    color: var(--text-dark, #1e293b);
+    border: 1.5px solid #e2e8f0;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
 
-/* Video Gallery */
-.gallery-video-card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; border: 1px solid #eef1f6 !important; }
-.gallery-video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(95, 150, 24, 0.08) !important; border-color: #5f9618 !important; }
+.gallery-filter-btn:hover,
+.gallery-filter-btn.active {
+    background: var(--primary-color, #ba0606);
+    color: var(--white, #ffffff);
+    border-color: var(--primary-color, #ba0606);
+    box-shadow: 0 8px 20px rgba(186, 6, 6, 0.25);
+    transform: translateY(-2px);
+}
+
+/* 2. Photo Card Design */
+.gallery-photo-card {
+    background: var(--white, #ffffff);
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+}
+
+.gallery-photo-card:hover {
+    border-color: var(--primary-color, #ba0606);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(186, 6, 6, 0.15);
+}
+
+.gallery-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-photo-card:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+.gallery-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(186, 6, 6, 0.85) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    cursor: pointer;
+}
+
+.gallery-photo-card:hover .gallery-hover-overlay {
+    opacity: 1;
+}
+
+.gallery-zoom-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--white, #ffffff);
+    color: var(--primary-color, #ba0606);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-photo-card:hover .gallery-zoom-icon {
+    transform: scale(1);
+}
+
+.gallery-card-body {
+    padding: 18px;
+    background: var(--white, #ffffff);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gallery-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-color, #ba0606);
+    background: rgba(186, 6, 6, 0.08);
+    border: 1px solid rgba(186, 6, 6, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    width: fit-content;
+}
+
+.gallery-card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    line-height: 1.35;
+    margin: 0;
+}

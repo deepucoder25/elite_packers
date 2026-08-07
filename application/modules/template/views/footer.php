@@ -68,7 +68,7 @@ $floatingWhatsappLink1 = !empty($whatsapphtml1)
               <li><a href="<?= site_url() ?>"><i class="bi bi-house-door item-icon"></i> Home</a></li>
               <li><a href="<?= site_url('about-us') ?>"><i class="bi bi-info-circle item-icon"></i> About Us</a></li>
               <li><a href="<?= site_url('why-choose-us') ?>"><i class="bi bi-patch-check item-icon"></i> Why Choose Us</a></li>
-              <li><a href="<?= site_url('our-branches') ?>"><i class="bi bi-geo-alt item-icon"></i> Our Network</a></li>
+              <li><a href="<?= site_url('our-branches') ?>"><i class="bi bi-geo-alt item-icon"></i> Our Branches</a></li>
               <li><a href="<?= site_url('testimonials') ?>"><i class="bi bi-chat-square-quote item-icon"></i> Testimonials</a></li>
               <li><a href="<?= site_url('faqs') ?>"><i class="bi bi-question-circle item-icon"></i> FAQ's</a></li>
               <li><a href="<?= site_url('contact-us') ?>"><i class="bi bi-envelope item-icon"></i> Contact Us</a></li>
