@@ -140,7 +140,7 @@ $comp_name = isset($company3) ? $company3 : 'Elite Packers and Movers';
                 ?>
                   <div class="d-flex flex-wrap gap-2 mb-3">
                     <?php foreach ($imgs as $img): if (trim($img) !== ''): ?>
-                      <img src="<?= base_url(trim($img)) ?>" alt="Review Photo" class="testimonial-img-thumb" onclick="openFullImage(this.src)">
+                      <img src="<?= base_url(trim($img)) ?>" alt="Customer Review Photo - <?= htmlspecialchars($name) ?>" class="testimonial-img-thumb" onclick="openFullImage(this.src)" loading="lazy">
                     <?php endif; endforeach; ?>
                   </div>
                 <?php endif; ?>

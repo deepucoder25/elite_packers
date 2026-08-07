@@ -68,7 +68,7 @@ $state = [
                     <!-- Image Container with Hover Overlay -->
                     <div class="pm-states-img-box">
                         <img class="img-fluid" src="<?= base_url('assets/images/state/' . $item['image']) ?>"
-                            alt="<?= htmlspecialchars($item['category']) ?>" loading="lazy">
+                            alt="<?= htmlspecialchars($item['category']) ?> Branch Packers and Movers" loading="lazy">
                         <span class="pm-states-badge">Branch Node</span>
 
                         <div class="pm-states-overlay">

@@ -81,9 +81,9 @@ $this->load->view('about/dynamic_breadcrumbs', [
                                     </p>
                                     <?php if (@$r->r_img) { ?>
                                         <div class="content-icon">
-                                            <a target="_blank" href="<?= base_url('assets/uploads/reviewimg/') . $r->r_img ?>" alt="<?= $r->name ?> review <?= $company3 ?>">
-                                                <img class="img4 img-fluid" src="<?= base_url('assets/uploads/reviewimg/thumb/') . $r->r_img ?>" alt="<?= $r->name ?> review <?= $company3 ?>">
-                                            </a>
+                                             <a target="_blank" href="<?= base_url('assets/uploads/reviewimg/') . $r->r_img ?>" aria-label="<?= htmlspecialchars($r->name) ?> review photo">
+                                                 <img class="img4 img-fluid" src="<?= base_url('assets/uploads/reviewimg/thumb/') . $r->r_img ?>" alt="<?= htmlspecialchars($r->name) ?> review <?= htmlspecialchars($company3) ?>" loading="lazy">
+                                             </a>
                                         </div>
                                     <?php } ?>
                                     <div class="reviews-reply-box">

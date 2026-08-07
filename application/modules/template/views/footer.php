@@ -1,14 +1,5 @@
 <!-- FOOTER SECTION (SAME TO SAME REFERENCE DESIGN) -->
 <?php
-$floatingPhoneNumber = preg_replace('/\D+/', '', (string) $phone);
-$floatingWhatsappLink = !empty($whatsapphtml)
-  ? $whatsapphtml
-  : (!empty($floatingPhoneNumber) ? 'https://wa.me/' . $floatingPhoneNumber : '#');
-
-$floatingPhoneNumber1 = !empty($phone1) ? preg_replace('/\D+/', '', (string) $phone1) : '';
-$floatingWhatsappLink1 = !empty($whatsapphtml1)
-  ? $whatsapphtml1
-  : (!empty($floatingPhoneNumber1) ? 'https://wa.me/' . $floatingPhoneNumber1 : '#');
 ?>
 <footer class="footer-section">
 
@@ -37,7 +28,7 @@ $floatingWhatsappLink1 = !empty($whatsapphtml1)
         <div class="col-12 col-md-6 col-lg-3">
           <div class="footer-brand-wrap">
             <a href="<?= site_url() ?>" class="d-inline-block mb-3">
-              <img src="<?= base_url() ?>assets/images/logo/logo.png" alt="<?= $company3 ?> Packers and Movers" class="footer-logo-img">
+              <img src="<?= base_url() ?>assets/images/logo/logo.png" alt="<?= $company3 ?> Logo" class="footer-logo-img" loading="lazy">
             </a>
             <p class="footer-desc-text">
               <?= $company3 ?> Packers and Movers is your trusted relocation partner, delivering safe, reliable and hassle-free moving services across India.
@@ -105,14 +96,14 @@ $floatingWhatsappLink1 = !empty($whatsapphtml1)
               <div class="footer-contact-row d-flex align-items-start gap-3">
                 <div class="footer-contact-gold-icon mt-1"><i class="bi bi-geo-alt-fill"></i></div>
                 <div class="footer-contact-text w-100">
-                  <div class="contact-addr-block pb-2 mb-2" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15);">
-                    <strong class="d-block text-gold mb-1" style="font-size: 11px; letter-spacing: 0.5px;">HEAD OFFICE:</strong>
-                    <span style="font-size: 12px; line-height: 1.45; display: block; color: rgba(255,255,255,0.92);"><?= $address ?></span>
+                  <div class="contact-addr-block pb-2 mb-2 contact-addr-border">
+                    <strong class="d-block text-gold mb-1 footer-office-heading">HEAD OFFICE:</strong>
+                    <span class="footer-office-address"><?= $address ?></span>
                   </div>
                   <?php if (!empty($branch_address)): ?>
                   <div class="contact-addr-block">
-                    <strong class="d-block text-gold mb-1" style="font-size: 11px; letter-spacing: 0.5px;">BRANCH OFFICE:</strong>
-                    <span style="font-size: 12px; line-height: 1.45; display: block; color: rgba(255,255,255,0.92);"><?= $branch_address ?></span>
+                    <strong class="d-block text-gold mb-1 footer-office-heading">BRANCH OFFICE:</strong>
+                    <span class="footer-office-address"><?= $branch_address ?></span>
                   </div>
                   <?php endif; ?>
                 </div>
@@ -122,10 +113,10 @@ $floatingWhatsappLink1 = !empty($whatsapphtml1)
               <div class="footer-contact-row d-flex align-items-center gap-3">
                 <div class="footer-contact-gold-icon"><i class="bi bi-telephone-fill"></i></div>
                 <div class="footer-contact-text d-flex flex-wrap align-items-center gap-2">
-                  <a href="<?= $phonehtml ?>" class="text-white text-decoration-none font-weight-bold" style="font-size: 13px;"><?= $phone ?></a>
-                  <?php if (!empty($phone1)): ?>
+                  <a href="<?= $phonehtml ?>" class="text-white text-decoration-none font-weight-bold footer-phone-link"><?= $phone ?></a>
+                  <?php if ($phone1): ?>
                   <span class="text-gold opacity-75">•</span>
-                  <a href="<?= isset($phonehtml1) && !empty($phonehtml1) ? $phonehtml1 : 'tel:' . preg_replace('/\D+/', '', $phone1) ?>" class="text-white text-decoration-none font-weight-bold" style="font-size: 13px;"><?= $phone1 ?></a>
+                  <a href="<?= $phonehtml1 ?>" class="text-white text-decoration-none font-weight-bold footer-phone-link"><?= $phone1 ?></a>
                   <?php endif; ?>
                 </div>
               </div>
@@ -134,7 +125,7 @@ $floatingWhatsappLink1 = !empty($whatsapphtml1)
               <a href="<?= $mailhtml ?>" class="footer-contact-row d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="footer-contact-gold-icon"><i class="bi bi-envelope-fill"></i></div>
                 <div class="footer-contact-text">
-                  <span style="font-size: 13px;"><?= $mail ?></span>
+                  <span class="footer-mail-text"><?= $mail ?></span>
                 </div>
               </a>
 
@@ -257,14 +248,14 @@ $floatingWhatsappLink1 = !empty($whatsapphtml1)
     <?php endif; ?>
     
     <!-- WhatsApp 1 (Primary WhatsApp) -->
-    <a href="<?= $floatingWhatsappLink ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp <?= $phone ?>" aria-label="Message <?= $company3 ?> <?= $phone ?> on WhatsApp">
+    <a href="<?= $whatsapphtml ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp <?= $phone ?>" aria-label="Message <?= $company3 ?> <?= $phone ?> on WhatsApp">
       <i class="bi bi-whatsapp"></i>
       <span class="float-label">WhatsApp <?= $phone ?></span>
     </a>
 
     <!-- WhatsApp 2 (Alternate WhatsApp) -->
     <?php if (!empty($phone1)): ?>
-    <a href="<?= $floatingWhatsappLink1 ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp <?= $phone1 ?>" aria-label="Message <?= $company3 ?> <?= $phone1 ?> on WhatsApp">
+    <a href="<?= $whatsapphtml1 ?>" class="float-popout-btn float-popout-whatsapp" target="_blank" rel="noopener" title="WhatsApp <?= $phone1 ?>" aria-label="Message <?= $company3 ?> <?= $phone1 ?> on WhatsApp">
       <i class="bi bi-whatsapp"></i>
       <span class="float-label">WhatsApp <?= $phone1 ?></span>
     </a>

@@ -115,7 +115,7 @@ $navbar_services = [
         <div class="services-main-card shadow-sm">
             <div class="services-grid-wrapper">
                 <?php foreach ($navbar_services as $srv): ?>
-                    <a href="<?= site_url($srv['link']) ?>" class="service-grid-cell text-decoration-none">
+                    <a href="<?= site_url($srv['link']) ?>" class="service-grid-cell text-decoration-none" aria-label="Read more about <?= htmlspecialchars($srv['title']) ?>">
                         <div class="srv-cell-inner d-flex flex-column align-items-center text-center h-100">
                             <!-- Circular Icon Container -->
                             <div class="srv-circle-icon-wrap">
@@ -129,7 +129,7 @@ $navbar_services = [
                             <p class="srv-cell-desc flex-grow-1 mb-0"><?= htmlspecialchars($srv['desc']) ?></p>
                             <!-- Hover Action Link Indicator -->
                             <div class="srv-hover-action">
-                                <span>Read More</span>
+                                <span>Read More <span class="visually-hidden">know more about <?= htmlspecialchars($srv['title']) ?></span></span>
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>

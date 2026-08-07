@@ -581,3 +581,29 @@
         left: 2px;
     }
 }
+
+/* Footer Contact Addresses & Links Classes (Replacing Inline CSS) */
+.contact-addr-border {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-office-heading {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.footer-office-address {
+    font-size: 12px;
+    line-height: 1.45;
+    display: block;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.footer-phone-link {
+    font-size: 13px;
+}
+
+.footer-mail-text {
+    font-size: 13px;
+}
+

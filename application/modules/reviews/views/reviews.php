@@ -77,7 +77,7 @@
                                                 <?php foreach($images as $img) { 
                                                     if(trim($img) !== '') {
                                                 ?>
-                                                    <img src="<?= base_url(trim($img)) ?>" alt="Review Image" class="img-thumbnail shadow-sm review-img-clickable" onclick="openImageModal(this.src)" style="height: 60px; width: 60px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; cursor: pointer;">
+                                                    <img src="<?= base_url(trim($img)) ?>" alt="Customer Review Photo - <?= htmlspecialchars($r->name) ?>" class="img-thumbnail shadow-sm review-img-clickable" onclick="openImageModal(this.src)" style="height: 60px; width: 60px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; cursor: pointer;" loading="lazy">
                                                 <?php } } ?>
                                             </div>
                                         <?php } ?>
