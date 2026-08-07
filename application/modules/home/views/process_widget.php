@@ -110,7 +110,7 @@ $process_steps = [
 
             <div class="row g-4 justify-content-center position-relative z-2">
                 <?php foreach ($process_steps as $index => $step): ?>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex">
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-2 d-flex">
                         <div class="process-card-wrap w-100 d-flex flex-column align-items-center text-center">
                             <!-- Step Badge Circle (01, 02, etc.) -->
                             <div class="process-step-badge">

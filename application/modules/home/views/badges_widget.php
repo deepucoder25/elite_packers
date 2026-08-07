@@ -27,10 +27,10 @@
         <div class="row g-4 align-items-stretch">
             
             <!-- Badge 1: ISO 9001:2015 -->
-            <div class="col-lg-3 col-md-6 col-12 badge-col">
+            <div class="col-lg-3 col-md-6 col-6 badge-col">
                 <div class="badge-card h-100 d-flex flex-column align-items-center text-center p-3">
                     <div class="badge-graphic-wrap mb-3">
-                        <img src="<?= base_url('assets/images/home_modules/badge_iso_9001.png') ?>" alt="ISO 9001:2015 Certified" class="badge-img img-fluid">
+                        <img src="<?= base_url('assets/images/home_modules/badge_iso_9001.png') ?>" alt="ISO 9001:2015 Certified" class="badge-img img-fluid" loading="lazy">
                     </div>
                     
                     <h3 class="badge-card-title mb-2">ISO 9001:2015</h3>
@@ -42,10 +42,10 @@
             </div>
 
             <!-- Badge 2: 5 Star Ratings -->
-            <div class="col-lg-3 col-md-6 col-12 badge-col">
+            <div class="col-lg-3 col-md-6 col-6 badge-col">
                 <div class="badge-card h-100 d-flex flex-column align-items-center text-center p-3">
                     <div class="badge-graphic-wrap mb-3">
-                        <img src="<?= base_url('assets/images/home_modules/5-star-rating.png') ?>" alt="5 Star Ratings" class="badge-img img-fluid">
+                        <img src="<?= base_url('assets/images/home_modules/5-star-rating.png') ?>" alt="5 Star Ratings" class="badge-img img-fluid" loading="lazy">
                     </div>
                     
                     <h3 class="badge-card-title mb-2">5 Star Ratings</h3>
@@ -57,10 +57,10 @@
             </div>
 
             <!-- Badge 3: Govt. Approved & Verified -->
-            <div class="col-lg-3 col-md-6 col-12 badge-col">
+            <div class="col-lg-3 col-md-6 col-6 badge-col">
                 <div class="badge-card h-100 d-flex flex-column align-items-center text-center p-3">
                     <div class="badge-graphic-wrap mb-3">
-                        <img src="<?= base_url('assets/images/home_modules/badge_govt_approved.png') ?>" alt="Govt Approved & Verified" class="badge-img img-fluid">
+                        <img src="<?= base_url('assets/images/home_modules/badge_govt_approved.png') ?>" alt="Govt Approved & Verified" class="badge-img img-fluid" loading="lazy">
                     </div>
                     
                     <h3 class="badge-card-title mb-2">Govt. Approved & Verified</h3>
@@ -72,10 +72,10 @@
             </div>
 
             <!-- Badge 4: 100% Safe & Secure -->
-            <div class="col-lg-3 col-md-6 col-12 badge-col">
+            <div class="col-lg-3 col-md-6 col-6 badge-col">
                 <div class="badge-card h-100 d-flex flex-column align-items-center text-center p-3">
                     <div class="badge-graphic-wrap mb-3">
-                        <img src="<?= base_url('assets/images/home_modules/badge_safe_secure.png') ?>" alt="100% Safe & Secure" class="badge-img img-fluid">
+                        <img src="<?= base_url('assets/images/home_modules/badge_safe_secure.png') ?>" alt="100% Safe & Secure" class="badge-img img-fluid" loading="lazy">
                     </div>
                     
                     <h3 class="badge-card-title mb-2">100% Safe & Secure</h3>
