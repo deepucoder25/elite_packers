@@ -73,87 +73,57 @@ class Reviews extends MX_Controller
     }
 
     function submit() {
+        $this->_process_review_submission();
+    }
+
+    function review() {
+        $this->_process_review_submission();
+    }
+
+    private function _process_review_submission() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->load->database();
             
-            $email = $this->input->post('email');
+            $redirect_url = isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : site_url('testimonials');
             
-            // Check if email already exists
-            $this->db->where('email', $email);
-            $existing = $this->db->get('reviews');
+            $name = $this->input->post('name') ? trim($this->input->post('name')) : 'Valued Customer';
+            $email = $this->input->post('email') ? trim($this->input->post('email')) : 'client@example.com';
             
-            if ($existing->num_rows() > 0) {
-                $this->session->set_flashdata('error', 'You have already submitted a review with this email address.');
-                redirect('reviews');
-                return;
-            }
-            
+            $city = $this->input->post('city') ? trim($this->input->post('city')) : ($this->input->post('title') ? trim($this->input->post('title')) : 'Home Relocation');
+            $desc = $this->input->post('review') ? trim($this->input->post('review')) : ($this->input->post('desc') ? trim($this->input->post('desc')) : '');
+            $stars = $this->input->post('rating') ? (int) $this->input->post('rating') : ($this->input->post('stars') ? (int) $this->input->post('stars') : 5);
+            if ($stars <= 0) $stars = 5;
+
             $uploaded_images = [];
-            if (isset($_FILES['review_images']) && !empty($_FILES['review_images']['name'][0])) {
+            
+            // Check review_images[] or img files
+            $file_key = isset($_FILES['review_images']) ? 'review_images' : (isset($_FILES['img']) ? 'img' : null);
+
+            if ($file_key && !empty($_FILES[$file_key]['name'])) {
                 $upload_path = FCPATH . 'assets/images/reviews/';
                 if (!is_dir($upload_path)) mkdir($upload_path, 0777, true);
                 
-                $files = $_FILES['review_images'];
-                $count = count($files['name']);
+                $files = $_FILES[$file_key];
+                $is_multiple = is_array($files['name']);
+                $count = $is_multiple ? count($files['name']) : 1;
                 
                 for($i=0; $i<$count; $i++) {
-                    $tmp_name = $files['tmp_name'][$i];
-                    $name = $files['name'][$i];
-                    $error = $files['error'][$i];
-                    $size = $files['size'][$i];
+                    $tmp_name = $is_multiple ? $files['tmp_name'][$i] : $files['tmp_name'];
+                    $name_file = $is_multiple ? $files['name'][$i] : $files['name'];
+                    $error = $is_multiple ? $files['error'][$i] : $files['error'];
+                    $size = $is_multiple ? $files['size'][$i] : $files['size'];
                     
-                    if ($error === UPLOAD_ERR_OK) {
+                    if ($error === UPLOAD_ERR_OK && !empty($tmp_name)) {
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
                         $mime = finfo_file($finfo, $tmp_name);
                         finfo_close($finfo);
                         
                         $allowed_mimes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
                         if (in_array($mime, $allowed_mimes)) {
-                            // Convert everything to jpg for simplicity and compression
-                            $new_name = uniqid('rev_') . '.jpg';
+                            $ext = pathinfo($name_file, PATHINFO_EXTENSION);
+                            $new_name = uniqid('rev_') . '.' . ($ext ? $ext : 'jpg');
                             $dest = $upload_path . $new_name;
-                            
-                            if ($size > 150000) {
-                                // Compress and resize if over 150KB
-                                $info = getimagesize($tmp_name);
-                                if ($info) {
-                                    $image = null;
-                                    if ($mime == 'image/jpeg' || $mime == 'image/jpg') $image = @imagecreatefromjpeg($tmp_name);
-                                    elseif ($mime == 'image/png') $image = @imagecreatefrompng($tmp_name);
-                                    elseif ($mime == 'image/webp') $image = @imagecreatefromwebp($tmp_name);
-                                    
-                                    if ($image) {
-                                        // Handle PNG transparency to white background
-                                        if ($mime == 'image/png' || $mime == 'image/webp') {
-                                            $bg = imagecreatetruecolor(imagesx($image), imagesy($image));
-                                            imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
-                                            imagealphablending($bg, TRUE);
-                                            imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
-                                            imagedestroy($image);
-                                            $image = $bg;
-                                        }
-                                        
-                                        $width = imagesx($image);
-                                        $height = imagesy($image);
-                                        if ($width > 800) {
-                                            $new_width = 800;
-                                            $new_height = floor($height * (800 / $width));
-                                            $tmp_img = imagecreatetruecolor($new_width, $new_height);
-                                            imagecopyresampled($tmp_img, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-                                            $image = $tmp_img;
-                                        }
-                                        imagejpeg($image, $dest, 60);
-                                        imagedestroy($image);
-                                        $uploaded_images[] = 'assets/images/reviews/' . $new_name;
-                                    }
-                                }
-                            } else {
-                                // If it's small enough but not a jpeg, we still rename it to jpg but we should convert it
-                                // Or we just keep the original extension if it's small. Let's keep original extension.
-                                $ext = pathinfo($name, PATHINFO_EXTENSION);
-                                $new_name = uniqid('rev_') . '.' . $ext;
-                                $dest = $upload_path . $new_name;
-                                move_uploaded_file($tmp_name, $dest);
+                            if (move_uploaded_file($tmp_name, $dest)) {
                                 $uploaded_images[] = 'assets/images/reviews/' . $new_name;
                             }
                         }
@@ -164,12 +134,12 @@ class Reviews extends MX_Controller
             $r_img_val = implode(',', $uploaded_images);
             
             $data = array(
-                'name' => $this->input->post('name'),
-                'email' => $this->input->post('email'),
-                'r_title' => $this->input->post('city'), // We use r_title to store city
-                'r_desc' => $this->input->post('review'),
-                'stars' => (int) $this->input->post('rating'),
-                'status' => 1, // Auto approve (direct show)
+                'name' => $name,
+                'email' => $email,
+                'r_title' => $city,
+                'r_desc' => $desc,
+                'stars' => $stars,
+                'status' => 1, // Active / auto-approved to display directly on website
                 'b_id' => 0,
                 'r_img' => $r_img_val,
                 'views' => 0,
@@ -178,8 +148,14 @@ class Reviews extends MX_Controller
             
             $this->db->insert('reviews', $data);
             
+            if ($this->input->is_ajax_request() || (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+                header('Content-Type: application/json');
+                echo json_encode(['err' => 0, 'msg' => 'Thank you! Your review has been submitted successfully.']);
+                return;
+            }
+
             $this->session->set_flashdata('success', 'Thank you! Your review has been submitted successfully.');
-            redirect('reviews');
+            redirect($redirect_url);
         }
     }
 }

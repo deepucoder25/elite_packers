@@ -1,6 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class About extends MX_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+    }
+
     function index()
     {
         $data['title'] = "About Us - Reliable Packers & Movers | " . $this->comp['company3'];
@@ -33,8 +39,14 @@ class About extends MX_Controller
 
     function testimonials()
     {
-        $data['title'] = "Customer Testimonials & Ratings | " . $this->comp['company3'];
-        $data['description'] = "Read genuine client testimonials and feedback about " . $this->comp['company3'] . ". See how we deliver hassle-free home, vehicle, and office relocations across India.";
+        $this->load->database();
+        $this->db->order_by('r_id', 'desc');
+        $this->db->where('status', 1);
+        $data['reviews'] = $this->db->get('reviews');
+        $data['company3'] = isset($this->comp['company3']) ? $this->comp['company3'] : 'Elite Packers and Movers';
+
+        $data['title'] = "Customer Testimonials & Ratings | " . $data['company3'];
+        $data['description'] = "Read genuine client testimonials and feedback about " . $data['company3'] . ". See how we deliver hassle-free home, vehicle, and office relocations across India.";
         $data['keywords'] = "packers movers reviews, customer testimonials, shifting service feedback, client ratings";
         $data['module'] = "about";
         $data['view_file'] = "testimonials";
