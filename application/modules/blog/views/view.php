@@ -3,13 +3,17 @@
 <main class="main">
     <!-- Breadcrumbs Section -->
     <?php 
-$this->load->view('about/dynamic_breadcrumbs', [
-    'bc_current' => '',
-    'bc_title_white' => 'Blog',
-    'bc_title_orange' => 'Details',
-    'bc_desc' => ''
-]); 
-?>
+    $post_title = isset($query[0]->title) && !empty($query[0]->title) ? $query[0]->title : (isset($query[0]->main_title) && !empty($query[0]->main_title) ? $query[0]->main_title : 'Blog Details');
+
+    $this->load->view('about/dynamic_breadcrumbs', [
+        'bc_h1' => $post_title,
+        'bc_desc' => 'Read expert relocation guides and shifting tips from ' . htmlspecialchars(isset($company3) ? $company3 : 'Elite Packers and Movers'),
+        'breadcrumbs' => [
+            ['name' => 'Blog', 'url' => site_url('blog')],
+            ['name' => $post_title]
+        ]
+    ]); 
+    ?>
 
     <!-- Blog Single Post -->
     <section class="blog-details-section py-5 bg-light">

@@ -14,9 +14,61 @@ class Blog extends MX_Controller {
     }
 
     private function loadBlogs() {
+        $blogs = [];
+
+        // 1. Fetch from Database Table 'blog'
+        $this->load->database();
+        if ($this->db->table_exists('blog')) {
+            $this->db->order_by('b_id', 'DESC');
+            $query = $this->db->get('blog');
+            if ($query && $query->num_rows() > 0) {
+                foreach ($query->result_array() as $row) {
+                    $title = !empty($row['title']) ? $row['title'] : (!empty($row['main_title']) ? $row['main_title'] : 'Relocation Guide');
+                    $slug = !empty($row['slug']) ? $row['slug'] : $this->slugify($title);
+                    $raw_date = !empty($row['timestamp']) ? $row['timestamp'] : (!empty($row['date']) ? $row['date'] : date('Y-m-d H:i:s'));
+
+                    $blogs[] = [
+                        'id' => $row['b_id'] ?? 0,
+                        'b_id' => $row['b_id'] ?? 0,
+                        'title' => $title,
+                        'main_title' => $row['main_title'] ?? $title,
+                        'slug' => $slug,
+                        'description' => $row['description'] ?? '',
+                        'date' => $row['date'] ?? date('d/m/Y'),
+                        'created_at' => $raw_date,
+                        'image' => $row['image'] ?? '',
+                        'author' => !empty($row['author']) ? $row['author'] : 'Admin',
+                        'meta_title' => $row['meta_title'] ?? '',
+                        'meta_desc' => $row['meta_desc'] ?? '',
+                        'tags' => $row['tags'] ?? ''
+                    ];
+                }
+            }
+        }
+
+        // 2. Fetch from admin_data/blogs.json if exists
         $path = FCPATH . 'admin_data/blogs.json';
-        if (!file_exists($path)) return [];
-        return json_decode(file_get_contents($path), true) ?: [];
+        if (file_exists($path)) {
+            $json_blogs = json_decode(file_get_contents($path), true) ?: [];
+            foreach ($json_blogs as $jb) {
+                $title = !empty($jb['title']) ? $jb['title'] : (!empty($jb['main_title']) ? $jb['main_title'] : 'Relocation Guide');
+                $slug = !empty($jb['slug']) ? $jb['slug'] : $this->slugify($title);
+                $blogs[] = [
+                    'id' => $jb['id'] ?? $jb['b_id'] ?? 0,
+                    'b_id' => $jb['b_id'] ?? $jb['id'] ?? 0,
+                    'title' => $title,
+                    'main_title' => $jb['main_title'] ?? $title,
+                    'slug' => $slug,
+                    'description' => $jb['description'] ?? '',
+                    'date' => $jb['date'] ?? date('d/m/Y'),
+                    'created_at' => $jb['created_at'] ?? date('Y-m-d H:i:s'),
+                    'image' => $jb['image'] ?? '',
+                    'author' => $jb['author'] ?? 'Admin'
+                ];
+            }
+        }
+
+        return $blogs;
     }
 
     function index() {
@@ -27,7 +79,7 @@ class Blog extends MX_Controller {
         $this->load->library('pagination');
         $this->load->helper('text'); 
 
-        $all_blogs = array_reverse($this->loadBlogs());
+        $all_blogs = $this->loadBlogs();
         $total_rows = count($all_blogs);
         $per_page = 6;
         $offset = (int) $this->uri->segment(3);
@@ -72,7 +124,6 @@ class Blog extends MX_Controller {
     }
 
     function read($slug = '') {
-        // die("DEBUG: Slug received: " . $slug);
         $this->load->helper('text');
 
         $all_blogs = $this->loadBlogs();
@@ -88,7 +139,8 @@ class Blog extends MX_Controller {
             if (
                 (!empty($custom_slug) && strtolower($custom_slug) == strtolower($search_slug)) || 
                 (strtolower($auto_slug) == strtolower($search_slug)) ||
-                ($b['id'] == $search_slug)
+                (($b['id'] ?? 0) == $search_slug) ||
+                (($b['b_id'] ?? 0) == $search_slug)
             ) {
                 $selected_blog = (object) $b;
                 break;
@@ -97,7 +149,7 @@ class Blog extends MX_Controller {
 
         if ($selected_blog) {
             $data['query'] = [$selected_blog];
-            $data['recent_posts'] = array_slice(array_reverse($all_blogs), 0, 5);
+            $data['recent_posts'] = array_slice($all_blogs, 0, 5);
             
             $data['title'] = ucfirst($selected_blog->title) . " | " . $this->comp['company3'];
             $data['description'] = character_limiter(trim(preg_replace('/\s+/', ' ', strip_tags($selected_blog->description))), 155);
