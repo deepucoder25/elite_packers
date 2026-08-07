@@ -191,7 +191,7 @@
                             <i class="bi bi-people-fill"></i>
                         </div>
                         <div class="trust-text-box">
-                            <h4 class="trust-value mb-0 fw-bold">5000+</h4>
+                            <h4 class="trust-value mb-0 fw-bold"><?= $happyClients ?></h4>
                             <span class="trust-label text-muted">Happy Customers</span>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                             <i class="bi bi-hand-thumbs-up-fill"></i>
                         </div>
                         <div class="trust-text-box">
-                            <h4 class="trust-value mb-0 fw-bold">98%</h4>
+                            <h4 class="trust-value mb-0 fw-bold"><?= $secureShifting ?></h4>
                             <span class="trust-label text-muted">Satisfaction Rate</span>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                             <i class="bi bi-star-fill"></i>
                         </div>
                         <div class="trust-text-box">
-                            <h4 class="trust-value mb-0 fw-bold">4.9/5</h4>
+                            <h4 class="trust-value mb-0 fw-bold"><?= $ratingValue ?>/5</h4>
                             <span class="trust-label text-muted">Google Rating</span>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                             <i class="bi bi-shield-check"></i>
                         </div>
                         <div class="trust-text-box">
-                            <h4 class="trust-value mb-0 fw-bold">10+</h4>
+                            <h4 class="trust-value mb-0 fw-bold"><?= $yearsExperience ?></h4>
                             <span class="trust-label text-muted">Years of Trust</span>
                         </div>
                     </div>

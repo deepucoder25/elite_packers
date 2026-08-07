@@ -2,79 +2,76 @@
 
 $faqs = [
     [
-        'question' => '1. What services do you provide?',
-        'answer' => 'We offer bike transportation, car transportation, home shifting, office relocation, warehousing, pet relocation, and more.',
-        'icon' => 'bi-file-earmark-check'
-    ],
-    [
-        'question' => '2. How do I get a quote for my move?',
-        'answer' => 'You can request a quote by filling out our online form or by contacting our customer support team.',
+        'question' => '1. What services do Packers & Movers provide?',
+        'answer' => 'We offer complete relocation solutions including household shifting, office relocation, car & bike transportation, multi-layer packing, loading/unloading, warehousing, and transit insurance.',
         'icon' => 'bi-box-seam'
     ],
     [
-        'question' => '3. How far in advance should I book?',
-        'answer' => 'We recommend booking at least 3-7 days in advance to ensure availability and smooth planning.',
-        'icon' => 'bi-calendar3'
+        'question' => '2. How are the relocation charges calculated?',
+        'answer' => 'Relocation charges depend on the distance, volume of goods, type of packing material used, floor level, availability of elevators, and optional transit insurance.',
+        'icon' => 'bi-calculator'
     ],
     [
-        'question' => '4. Is my goods and vehicle insured?',
-        'answer' => 'Yes, we provide transit insurance options to ensure your goods and vehicle are fully protected.',
+        'question' => '3. How far in advance should I book my move?',
+        'answer' => 'We recommend booking 3 to 7 days in advance for local shifting, and 7 to 10 days ahead for inter-city relocation to ensure slot availability and smooth planning.',
+        'icon' => 'bi-calendar-check'
+    ],
+    [
+        'question' => '4. Are my goods and vehicles insured during transit?',
+        'answer' => 'Yes! We provide comprehensive transit insurance coverage for all your household goods, cars, and bikes to protect against any unforeseen damages during transit.',
         'icon' => 'bi-shield-check'
     ],
     [
-        'question' => '5. Do you provide door-to-door service?',
-        'answer' => 'Yes, we provide safe and reliable door-to-door pickup and delivery services for all locations.',
-        'icon' => 'bi-geo-alt'
+        'question' => '5. Do you provide door-to-door relocation service?',
+        'answer' => 'Yes, we provide 100% door-to-door service where our expert team handles packing at your current home and safe unloading/unpacking at your new address.',
+        'icon' => 'bi-geo-alt-fill'
     ],
     [
-        'question' => '6. Can I track my shipment?',
-        'answer' => 'Yes, once your shipment is dispatched, you will receive tracking details to monitor your move in real-time.',
+        'question' => '6. Can I track my shipment in real-time?',
+        'answer' => 'Yes! Once your consignment is dispatched, you receive live GPS tracking updates and a direct line to your dedicated movement coordinator.',
         'icon' => 'bi-headset'
     ],
     [
         'question' => '7. What payment methods do you accept?',
-        'answer' => 'We accept payments via UPI, credit/debit cards, net banking, and cash. Payment terms may vary for corporate bookings.',
+        'answer' => 'We accept multiple convenient payment options including UPI, Credit/Debit cards, Net Banking, and Bank Transfers. Clear GST invoices are provided.',
         'icon' => 'bi-credit-card'
     ],
     [
-        'question' => '8. What if something gets damaged?',
-        'answer' => 'In the rare event of damage, our support team will assist you with a quick claim and resolution process.',
+        'question' => '8. What happens if any item is damaged during moving?',
+        'answer' => 'In the rare event of damage, our customer claims team conducts an immediate assessment and processes insurance claims quickly for full hassle-free resolution.',
         'icon' => 'bi-chat-left-dots'
     ]
 ];
 ?>
 
-<section class="faq-section py-5">
-    <!-- Background Decor Grid Patterns -->
-    <div class="faq-decor decor-top-left"></div>
-    <div class="faq-decor decor-bottom-right"></div>
+<section class="faq-section py-5 position-relative overflow-hidden">
+    <!-- Ambient Background Artwork -->
+    <div class="faq-bg-decor decor-top-left"></div>
+    <div class="faq-bg-decor decor-bottom-right"></div>
 
-    <div class="container position-relative about-z2">
+    <div class="container position-relative z-2">
         
-        <!-- FAQ Badge & Header -->
-        <div class="faq-header-wrap text-center mb-4">
-            <div class="faq-badge-container d-flex align-items-center justify-content-center mb-3">
-                <span class="badge-line line-left"></span>
-                <span class="faq-pill-badge">FAQ</span>
-                <span class="badge-line line-right"></span>
+        <!-- Section Header (Reusing Process Section Heading Classes) -->
+        <div class="process-header text-center mb-4 mb-md-5">
+            <div class="process-subtitle-wrap d-flex align-items-center justify-content-center mb-2">
+                <span class="sub-line"></span>
+                <span class="sub-text">FAQS</span>
+                <span class="sub-line"></span>
             </div>
-            <h2 class="faq-section-title">Frequently Asked Questions</h2>
-            <div class="faq-title-truck-wrap">
-                <div class="truck-icon-container">
-                    <span class="speed-line line-1"></span>
-                    <span class="speed-line line-2"></span>
-                    <span class="speed-line line-3"></span>
-                    <i class="bi bi-truck truck-icon"></i>
-                </div>
-            </div>
-            <p class="faq-section-subtitle mt-3">Find answers to common questions about our moving and transportation services.</p>
+            <h2 class="process-main-title mb-2">
+                Frequently Asked <span class="title-highlight-red">Questions</span>
+            </h2>
+            <div class="process-title-underline-red mb-3"></div>
+            <p class="process-header-desc mx-auto">
+                Find answers to common questions about our moving and transportation services.
+            </p>
         </div>
 
         <!-- Accordion Grid -->
-        <div class="row g-2">
+        <div class="row g-3 g-lg-4">
             <?php foreach ($faqs as $index => $faq): ?>
                 <div class="col-lg-6 col-12 d-flex">
-                    <div class="faq-card flex-fill">
+                    <div class="faq-card w-100 flex-fill">
                         <div class="faq-card-header d-flex align-items-center collapsed" 
                              data-bs-toggle="collapse" 
                              data-bs-target="#faq-collapse-<?= $index ?>" 
@@ -85,12 +82,12 @@ $faqs = [
                                 <i class="bi <?= $faq['icon'] ?> faq-card-icon"></i>
                             </div>
                             
-                            <div class="faq-question-wrap flex-grow-1">
+                            <div class="faq-question-wrap flex-grow-1 ps-2">
                                 <h3 class="faq-question m-0"><?= htmlspecialchars($faq['question']) ?></h3>
                             </div>
                             
                             <div class="faq-toggle-btn d-flex align-items-center justify-content-center">
-                                <i class="bi bi-plus faq-toggle-icon"></i>
+                                <i class="bi bi-plus-lg faq-toggle-icon"></i>
                             </div>
                         </div>
                         
@@ -106,35 +103,30 @@ $faqs = [
             <?php endforeach; ?>
         </div>
 
-        <!-- Still have questions / help banner -->
-        <div class="faq-footer-banner-wrap mt-3 pt-1 position-relative">
-            
-            <!-- Curved Dotted Arrows -->
-            <div class="faq-arrow-wrap faq-arrow-left d-none d-lg-block">
-                <svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 10 C 20 45, 75 45, 105 15" stroke="#0a4ebd" stroke-width="2" stroke-dasharray="4, 4" stroke-linecap="round"/>
-                    <path d="M96 22 L 105 15 L 105 26" stroke="#0a4ebd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            
-            <div class="faq-arrow-wrap faq-arrow-right d-none d-lg-block">
-                <svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M110 10 C 100 45, 45 45, 15 15" stroke="#0a4ebd" stroke-width="2" stroke-dasharray="4, 4" stroke-linecap="round"/>
-                    <path d="M24 22 L 15 15 L 15 26" stroke="#0a4ebd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-
-            <!-- Help Banner Box -->
+        <!-- Still Have Questions / Help Banner -->
+        <div class="faq-footer-banner-wrap mt-4 pt-3 position-relative">
             <div class="faq-help-banner mx-auto">
-                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
-                    <div class="help-icon-wrap d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-4">
-                        <i class="bi bi-headset help-icon"></i>
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="help-icon-wrap d-flex align-items-center justify-content-center">
+                            <i class="bi bi-headset help-icon"></i>
+                        </div>
+                        <div class="help-text-wrap text-white">
+                            <h4 class="help-title mb-1 fw-bold">Still have questions? We're here to help!</h4>
+                            <p class="help-desc mb-0">Our dedicated support team is available to assist you 24/7.</p>
+                        </div>
                     </div>
-                    <div class="help-text-wrap text-white">
-                        <h4 class="help-title mb-1">Still have questions? We're here to help!</h4>
-                        <p class="help-desc mb-0">
-                            Call us at <a href="<?= $phonehtml ?>" class="help-link"><?= $phone ?></a> or email us at <a href="mailto:<?= $mail ?>" class="help-link"><?= $mail ?></a>
-                        </p>
+                    <div class="help-actions-wrap d-flex flex-wrap align-items-center justify-content-center gap-2">
+                        <?php if (isset($phone) && !empty($phone)): ?>
+                            <a href="<?= isset($phonehtml) ? $phonehtml : '#' ?>" class="help-pill-btn">
+                                <i class="bi bi-telephone-fill me-1"></i> <?= $phone ?>
+                            </a>
+                        <?php endif; ?>
+                        <?php if (isset($mail) && !empty($mail)): ?>
+                            <a href="mailto:<?= $mail ?>" class="help-pill-btn">
+                                <i class="bi bi-envelope-fill me-1"></i> <?= $mail ?>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
