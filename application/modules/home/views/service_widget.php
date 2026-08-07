@@ -46,7 +46,7 @@ $navbar_services = [
     [
         'title' => 'Custom Relocation',
         'desc'  => 'Tailored moving and logistics solutions designed for your specific shifting needs.',
-        'link'  => 'contact-us',
+        'link'  => 'custom-relocation',
         'icon'  => '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 3L27 7V16C27 22.5 22 27.5 16 29C10 27.5 5 22.5 5 16V7L16 3Z" fill="url(#shieldGrad)" stroke="var(--primary-color)" stroke-width="1.8" stroke-linejoin="round"/><path d="M11 15.5L14.5 19L21 11.5" stroke="var(--primary-color)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="16" r="8" stroke="var(--accent-gold)" stroke-width="1.5" stroke-dasharray="3 3"/><defs><linearGradient id="shieldGrad" x1="16" y1="3" x2="16" y2="29" gradientUnits="userSpaceOnUse"><stop stop-color="#fff5f5"/><stop offset="1" stop-color="#fee2e2"/></linearGradient></defs></svg>'
     ]
 ];
@@ -142,10 +142,3 @@ $navbar_services = [
         </div>
     </div>
 </section>
-
-
-
-
-
-
-

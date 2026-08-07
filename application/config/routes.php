@@ -28,16 +28,16 @@ $route["car-transport-in-(:any)"] = "city_services/car_transport/$1";
 $route["bike-transport-in-(:any)"] = "city_services/bike_transport/$1";
 
 // Services Routes
-$route["our-services"] = "services/index";
 $route["home-relocation"] = "services/homeShifting";
 $route["office-relocation"] = "services/office";
 $route["bike-transportation"] = "services/bike";
 $route["car-transportation"] = "services/car";
 $route["packing-and-moving"] = "services/packingMoving";
 $route["loading-unloading"] = "services/loadingUnloading";
+$route["storage-services"] = "services/storage";
+$route["custom-relocation"] = "services/customRelocation";
 
 // Legacy/Compatibility Routes
-$route["storage-services"] = "services/storage";
 $route["car-transportation-service"] = "services/car";
 $route["infrastructure"] = "about/infrastructure";
 $route["why-choose-us"] = "about/choose";

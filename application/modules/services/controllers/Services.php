@@ -66,4 +66,24 @@ class Services extends MX_Controller
         $data['view_file'] = "loading_unloading";
         echo Modules::run('template/layout2', $data);
     }
+
+    function storage()
+    {
+        $data['title'] = "Secure Warehouse & Goods Storage Services | " . $this->comp['company3'];
+        $data['description'] = "Safe, spacious, and climate-controlled warehousing & household storage solutions by " . $this->comp['company3'] . ". Short-term & long-term storage with 24/7 CCTV surveillance.";
+        $data['keywords'] = "storage services, warehouse storage, household goods storage, luggage storage, " . $this->comp['company3'];
+        $data['module'] = "services";
+        $data['view_file'] = "storage";
+        echo Modules::run('template/layout2', $data);
+    }
+
+    function customRelocation()
+    {
+        $data['title'] = "Custom Shifting & Special Relocation Solutions | " . $this->comp['company3'];
+        $data['description'] = "Tailored relocation services designed for unique moving needs by " . $this->comp['company3'] . ". Specialized heavy machinery moving, pet relocation, fragile item handling & custom logistics.";
+        $data['keywords'] = "custom relocation, tailored shifting, special moving services, customized logistics, " . $this->comp['company3'];
+        $data['module'] = "services";
+        $data['view_file'] = "custom_relocation";
+        echo Modules::run('template/layout2', $data);
+    }
 }
