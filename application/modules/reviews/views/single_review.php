@@ -1,24 +1,16 @@
 <?php
 $rev = $reviews->result();
 ?>
-<section id="breadcrumbs" class="page_breadcrumbs ds parallax section_padding_65 table_section table_section_md">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-left">
-                <h1 class="cornered-heading"><?= mb_strimwidth(@$rev[0]->r_title, 0, 40, "..."); ?>
-                </h1>
-            </div>
-            <div class="col-md-6 text-center text-md-right">
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="<?= site_url() ?>">Home</a>
-                    </li>
-                    <li class="active">Complaints & Reviews</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</section>
+<?php
+$rev_title = isset($rev[0]->r_title) ? mb_strimwidth($rev[0]->r_title, 0, 40, "...") : 'Customer Review';
+$this->load->view('about/dynamic_breadcrumbs', [
+    'bc_h1' => $rev_title,
+    'breadcrumbs' => [
+        ['name' => 'Reviews', 'url' => site_url('reviews')],
+        ['name' => $rev_title, 'url' => 'javascript:void(0)']
+    ]
+]);
+?>
 
 <!-- Page Section - End 
 ================================================== -->

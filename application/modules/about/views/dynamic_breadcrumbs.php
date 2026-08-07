@@ -50,27 +50,66 @@ $schema_json = [
 
 <!-- Breadcrumbs Section -->
 <section class="dynamic-bc-section">
+    <!-- Ambient Background Light Orbs & Diamond Particles -->
+    <div class="bc-orb orb-1"></div>
+    <div class="bc-orb orb-2"></div>
+    <div class="bc-orb orb-3"></div>
+    <div class="bc-diamond diamond-1"></div>
+
     <div class="container">
-        <nav class="dyn-bc-nav" aria-label="breadcrumb">
-            <a href="<?= site_url() ?>">Home</a>
-            <?php if (isset($breadcrumbs) && is_array($breadcrumbs) && !empty($breadcrumbs)): ?>
-                <?php foreach ($breadcrumbs as $crumb): ?>
-                    <span class="dyn-bc-sep">›</span>
-                    <?php if (isset($crumb['url']) && !empty($crumb['url']) && $crumb['url'] !== 'javascript:void(0)'): ?>
-                        <a href="<?= $crumb['url'] ?>"><?= isset($crumb['name']) ? $crumb['name'] : $crumb['title'] ?></a>
+        <div class="dyn-bc-header-wrap">
+            <!-- Left Side Content -->
+            <div class="dyn-bc-left-content">
+                <nav class="dyn-bc-nav" aria-label="breadcrumb">
+                    <a href="<?= site_url() ?>"><i class="bi bi-house-door-fill me-1"></i>Home</a>
+                    <?php if (isset($breadcrumbs) && is_array($breadcrumbs) && !empty($breadcrumbs)): ?>
+                        <?php foreach ($breadcrumbs as $crumb): ?>
+                            <span class="dyn-bc-sep">&gt;</span>
+                            <?php if (isset($crumb['url']) && !empty($crumb['url']) && $crumb['url'] !== 'javascript:void(0)'): ?>
+                                <a href="<?= $crumb['url'] ?>"><i class="bi bi-box-seam me-1"></i><?= isset($crumb['name']) ? $crumb['name'] : $crumb['title'] ?></a>
+                            <?php else: ?>
+                                <span class="dyn-bc-current"><?= isset($crumb['name']) ? $crumb['name'] : (isset($crumb['title']) ? $crumb['title'] : '') ?></span>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     <?php else: ?>
-                        <span
-                            class="dyn-bc-current"><?= isset($crumb['name']) ? $crumb['name'] : (isset($crumb['title']) ? $crumb['title'] : '') ?></span>
+                        <span class="dyn-bc-sep">&gt;</span>
+                        <span class="dyn-bc-current"><?= isset($bc_current) ? $bc_current : '' ?></span>
                     <?php endif; ?>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <span class="dyn-bc-sep">›</span>
-                <span class="dyn-bc-current"><?= isset($bc_current) ? $bc_current : '' ?></span>
-            <?php endif; ?>
-        </nav>
-        <h1><?= isset($bc_h1) ? $bc_h1 : '' ?></h1>
-        <?php if (isset($bc_desc) && !empty($bc_desc)): ?>
-            <p class="dyn-bc-desc"><?= $bc_desc ?></p>
-        <?php endif; ?>
+                </nav>
+                <h1><?= isset($bc_h1) ? $bc_h1 : '' ?></h1>
+                <div class="dyn-bc-glow-bar"></div>
+            </div>
+
+            <!-- Right Side Glassmorphism Cards Stack -->
+            <div class="dyn-bc-trust-badges">
+                <div class="dyn-bc-trust-card">
+                    <div class="dyn-bc-card-icon">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="dyn-bc-card-info">
+                        <h4 class="dyn-bc-card-title"><?= $ratingValue ?>/5 Rating</h4>
+                        <span class="dyn-bc-card-sub">based on <?= $ratingCount ?>+ reviews</span>
+                    </div>
+                </div>
+                <div class="dyn-bc-trust-card">
+                    <div class="dyn-bc-card-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="dyn-bc-card-info">
+                        <h4 class="dyn-bc-card-title"><?= $secureShifting ?> Safe Move</h4>
+                        <span class="dyn-bc-card-sub">Trusted and Insured</span>
+                    </div>
+                </div>
+                <div class="dyn-bc-trust-card">
+                    <div class="dyn-bc-card-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <div class="dyn-bc-card-info">
+                        <h4 class="dyn-bc-card-title">Pan-India Service</h4>
+                        <span class="dyn-bc-card-sub">Network across <?= $statesCovered ?> cities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

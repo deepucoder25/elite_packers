@@ -1,77 +1,378 @@
-/* Dynamic Breadcrumbs Styles */
+/* ==========================================================================
+   Dynamic Breadcrumbs Section - Premium Mockup Match Design
+   ========================================================================== */
+
+/* Main Breadcrumb Banner Section (Acts as background hero under transparent nav) */
 .dynamic-bc-section {
-    background: linear-gradient(120deg, #001333 0%, #0a3fa8 55%, #1565d8 100%);
-    padding: 52px 0 80px 0;
-    margin-bottom: 0;
     position: relative;
+    background: #080d1d;
+    background: radial-gradient(circle at 10% 20%, #151b2e 0%, #080d1d 100%);
+    padding: 140px 0 65px 0;
+    margin-bottom: 0;
     overflow: hidden;
-}
-.dynamic-bc-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-    background-size: 22px 22px;
-    pointer-events: none;
-}
-.dynamic-bc-section::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 360px;
-    height: 360px;
-    background: radial-gradient(circle, rgba(255,200,0,0.12) 0%, transparent 70%);
-    pointer-events: none;
+    color: var(--white);
+    border-bottom: 3px solid var(--accent-gold);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
+/* Bokeh Glow Orbs & Diamond Accents */
+.bc-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.orb-1 {
+    top: -40px;
+    left: 20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(186, 6, 6, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.orb-2 {
+    top: -30px;
+    right: 15%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.orb-3 {
+    bottom: -50px;
+    left: 5%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(186, 6, 6, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.bc-diamond {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(255, 179, 0, 0.6);
+    transform: rotate(45deg);
+    bottom: 25px;
+    right: 12%;
+    box-shadow: 0 0 12px rgba(255, 179, 0, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure container content sits above ambient background effects */
+.dynamic-bc-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Floating Glassmorphism Breadcrumb Navigation Container */
 .dyn-bc-nav {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 13px;
-    margin-bottom: 18px;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 22px;
     flex-wrap: wrap;
     position: relative;
-    z-index: 1;
-}
-.dyn-bc-nav a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    transition: color 0.25s;
-    font-weight: 500;
-}
-.dyn-bc-nav a:hover { color: #ffd600; }
-.dyn-bc-nav .dyn-bc-sep {
-    color: rgba(255,255,255,0.45);
-    font-size: 12px;
-    margin: 0 2px;
-}
-.dyn-bc-nav .dyn-bc-current {
-    color: #ffd600;
-    font-weight: 600;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 8px 24px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
+.dyn-bc-nav:hover {
+    border-color: rgba(255, 179, 0, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Breadcrumb Links & Text */
+.dyn-bc-nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dyn-bc-nav a:hover {
+    color: var(--accent-gold);
+    text-shadow: 0 0 8px rgba(255, 179, 0, 0.5);
+}
+
+.dyn-bc-nav a i {
+    color: var(--accent-gold);
+}
+
+.dyn-bc-nav .dyn-bc-sep {
+    color: var(--accent-gold);
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0.9;
+    margin: 0 4px;
+    user-select: none;
+}
+
+.dyn-bc-nav .dyn-bc-current {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* Main Page Heading (H1) */
 .dynamic-bc-section h1 {
     font-weight: 800;
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
     line-height: 1.15;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     position: relative;
-    z-index: 1;
-    color: #ffffff;
+    z-index: 2;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.dyn-bc-desc {
-    color: rgba(255,255,255,0.82);
-    font-size: 15px;
-    line-height: 1.65;
-    max-width: 560px;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 1;
+/* Hide old ::after underline bar */
+.dynamic-bc-section h1::after {
+    display: none;
 }
 
-@media (max-width: 768px) {
-    .dynamic-bc-section { padding: 36px 0 70px 0; }
+/* Multi-color Glowing Underline Bar */
+.dyn-bc-glow-bar {
+    width: 320px;
+    max-width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #ffb300 0%, #ff3b30 65%, rgba(255, 59, 48, 0) 100%);
+    border-radius: 4px;
+    margin-top: 10px;
+    box-shadow: 0 0 16px rgba(255, 179, 0, 0.7);
+    transition: width 0.3s ease;
 }
+
+.dynamic-bc-section:hover .dyn-bc-glow-bar {
+    width: 360px;
+}
+
+/* Split Hero Header Wrap */
+.dyn-bc-header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.dyn-bc-left-content {
+    flex: 1;
+}
+
+/* Right Side Glassmorphism Cards Stack */
+.dyn-bc-trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-end;
+}
+
+.dyn-bc-trust-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    padding: 12px 22px;
+    border-radius: 18px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 290px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dyn-bc-trust-card:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--accent-gold);
+    transform: translateX(-6px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(255, 179, 0, 0.35);
+}
+
+.dyn-bc-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 179, 0, 0.25) 0%, rgba(186, 6, 6, 0.2) 100%);
+    border: 1px solid rgba(255, 179, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-size: 1.35rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dyn-bc-card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.dyn-bc-card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin: 0;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+}
+
+.dyn-bc-card-sub {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 3px;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   Responsive Breakpoint Optimizations
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .dynamic-bc-section {
+        padding: 125px 0 54px 0;
+    }
+
+    .dyn-bc-header-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .dyn-bc-left-content {
+        width: 100%;
+    }
+
+    .dyn-bc-trust-badges {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .dyn-bc-trust-card {
+        flex: 1 1 calc(50% - 6px);
+        min-width: unset;
+        padding: 10px 14px;
+    }
+
+    .dyn-bc-trust-card:last-child {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .dynamic-bc-section {
+        padding: 95px 0 46px 0;
+    }
+
+    .dyn-bc-nav {
+        padding: 6px 16px;
+        font-size: 13px;
+        gap: 4px;
+        margin-bottom: 18px;
+        border-radius: 24px;
+    }
+
+    .dyn-bc-nav a {
+        padding: 3px 6px;
+    }
+
+    .dyn-bc-glow-bar {
+        width: 220px;
+        height: 5px;
+        margin-top: 8px;
+    }
+
+    .dyn-bc-trust-card {
+        padding: 9px 12px;
+        gap: 10px;
+    }
+
+    .dyn-bc-card-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+    }
+
+    .dyn-bc-card-title {
+        font-size: 13.5px;
+    }
+
+    .dyn-bc-card-sub {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dynamic-bc-section {
+        padding: 85px 0 40px 0;
+    }
+
+    .dyn-bc-nav {
+        padding: 5px 12px;
+        font-size: 12px;
+        gap: 3px;
+        margin-bottom: 14px;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dyn-bc-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dyn-bc-trust-badges {
+        gap: 8px;
+    }
+
+    .dyn-bc-trust-card {
+        padding: 8px 10px;
+        gap: 8px;
+        border-radius: 14px;
+    }
+
+    .dyn-bc-card-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+
+    .dyn-bc-card-title {
+        font-size: 12.5px;
+    }
+
+    .dyn-bc-card-sub {
+        font-size: 10.5px;
+    }
+}
+
+
+
