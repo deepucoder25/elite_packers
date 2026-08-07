@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Centralized Global Scroll Entrance Observer for All Sections
-  const revealElements = document.querySelectorAll('.services-section, .process-section, .about-section, .review-widget, .faq-section, .footer-col-box, .footer-contact-row, .footer-feature-glass-box, .hero-bottom-feat-card, section, .service-card, .city-card');
+  const revealElements = document.querySelectorAll('.services-section, .process-section, .about-section, .review-widget, .faq-section, .footer-col-box, .footer-contact-row, .footer-feature-glass-box, .hero-bottom-feat-card, .service-card, .city-card');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.20, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
     revealElements.forEach(el => {
       el.classList.add('scroll-reveal-item');

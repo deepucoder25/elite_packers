@@ -52,25 +52,25 @@
         <div class="about-stat-row">
             <div class="stat-box-modern">
                 <div class="stat-glow-dot"></div>
-                <div class="stat-num-giant">15+</div>
+                <div class="stat-num-giant"><?= $yearsExperience ?></div>
                 <div class="stat-txt-label">Years Operating Experience</div>
             </div>
 
             <div class="stat-box-modern">
                 <div class="stat-glow-dot"></div>
-                <div class="stat-num-giant">50K+</div>
+                <div class="stat-num-giant"><?= $happyClients ?></div>
                 <div class="stat-txt-label">Happy Families Relocated</div>
             </div>
 
             <div class="stat-box-modern">
                 <div class="stat-glow-dot"></div>
-                <div class="stat-num-giant">150+</div>
-                <div class="stat-txt-label">Sealed GPS Container Fleets</div>
+                <div class="stat-num-giant"><?= $statesCovered ?></div>
+                <div class="stat-txt-label">States Covered</div>
             </div>
 
             <div class="stat-box-modern">
                 <div class="stat-glow-dot"></div>
-                <div class="stat-num-giant">100%</div>
+                <div class="stat-num-giant"><?= $secureShifting ?></div>
                 <div class="stat-txt-label">Comprehensive Transit Cover</div>
             </div>
         </div>

@@ -608,7 +608,21 @@
 
 @media (max-width: 576px) {
     .about-stat-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-box-modern {
+        padding: 16px 12px;
+        border-radius: 16px;
+    }
+
+    .stat-num-giant {
+        font-size: 28px;
+    }
+
+    .stat-txt-label {
+        font-size: 11.5px;
     }
 
     .feature-box-grid {

@@ -819,3 +819,520 @@
 .contact-tracking-success { color: green; }
 .contact-tracking-link { background-color: #28a745; padding: 4px; color: #fff; }
 .contact-tracking-underline { text-decoration: underline; }
+
+/* ==========================================================================
+   PREMIUM CONSIGNMENT TRACKING DASHBOARD STYLES (contact_modules.css)
+   ========================================================================== */
+
+.tracking-hero-card {
+    background: var(--white, #ffffff);
+    border-radius: 28px;
+    padding: 40px 35px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    border: 1.5px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tracking-hero-header-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color, #ba0606) 0%, var(--accent-gold, #ffb300) 100%);
+}
+
+.tracking-hero-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text-dark, #1e293b);
+    letter-spacing: -0.5px;
+}
+
+.tracking-search-box {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.tracking-input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tracking-input-icon-wrap {
+    position: relative;
+    flex: 1 1 280px;
+}
+
+.tracking-input-icon-wrap i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color, #ba0606);
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+.tracking-input-field {
+    height: 56px;
+    padding-left: 55px;
+    border-radius: 50px !important;
+    border: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark, #1e293b);
+    transition: all 0.3s ease;
+}
+
+.tracking-input-field:focus {
+    background-color: var(--white, #ffffff);
+    border-color: var(--primary-color, #ba0606);
+    box-shadow: 0 0 0 4px rgba(186, 6, 6, 0.12);
+    outline: none;
+}
+
+.btn-tracking-submit {
+    height: 56px;
+    min-width: 160px;
+    padding: 0 28px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--primary-color, #ba0606) 0%, #880000 100%);
+    color: var(--white, #ffffff);
+    font-weight: 800;
+    font-size: 15px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 10px 25px rgba(186, 6, 6, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-tracking-submit:hover {
+    background: linear-gradient(135deg, #a70000 0%, #550000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(186, 6, 6, 0.45);
+    color: var(--white, #ffffff);
+}
+
+.btn-tracking-reset {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.btn-tracking-reset:hover {
+    background: #e2e8f0;
+    color: var(--primary-color, #ba0606);
+    transform: rotate(90deg);
+}
+
+/* Sample LR Number Pills */
+.tracking-sample-pills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.sample-lr-pill {
+    background: rgba(186, 6, 6, 0.06);
+    color: var(--primary-color, #ba0606);
+    border: 1px solid rgba(186, 6, 6, 0.2);
+    border-radius: 30px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sample-lr-pill:hover {
+    background: var(--primary-color, #ba0606);
+    color: var(--white, #ffffff);
+}
+
+/* TRACKING DETAILS DASHBOARD CARD */
+.tracking-dashboard-card {
+    background: var(--white, #ffffff);
+    border-radius: 28px;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.tracking-dash-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: var(--white, #ffffff);
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 3px solid var(--accent-gold, #ffb300);
+}
+
+.tracking-dash-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tracking-dash-title i {
+    color: var(--accent-gold, #ffb300);
+}
+
+.tracking-live-status-pill {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pulse-dot-live {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: livePulseDot 1.8s infinite;
+}
+
+@keyframes livePulseDot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* STATS SUMMARY GRID (6 CARDS) */
+.tracking-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 28px;
+    background: #f8fafc;
+    border-bottom: 1.5px solid #e2e8f0;
+}
+
+@media (max-width: 991px) {
+    .tracking-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .tracking-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tracking-info-box {
+    background: var(--white, #ffffff);
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.25s ease;
+}
+
+.tracking-info-box:hover {
+    border-color: var(--primary-color, #ba0606);
+    box-shadow: 0 8px 20px rgba(186, 6, 6, 0.08);
+    transform: translateY(-2px);
+}
+
+.tracking-box-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(186, 6, 6, 0.08);
+    color: var(--primary-color, #ba0606);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.tracking-box-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 2px;
+}
+
+.tracking-box-val {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin: 0;
+    word-break: break-word;
+}
+
+/* STEPPER PROGRESS TRACKER */
+.tracking-stepper-wrap {
+    padding: 35px 28px;
+    background: var(--white, #ffffff);
+}
+
+.tracking-stepper-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tracking-stepper-title i {
+    color: var(--primary-color, #ba0606);
+}
+
+.tracking-stepper-line-container {
+    position: relative;
+    padding: 0 20px;
+}
+
+.tracking-progress-track {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    right: 40px;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.tracking-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color, #ba0606) 0%, var(--accent-gold, #ffb300) 100%);
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tracking-steps-grid {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.tracking-step-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+}
+
+.tracking-node-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--white, #ffffff);
+    border: 3px solid #cbd5e1;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 12px;
+}
+
+.tracking-step-node.completed .tracking-node-icon,
+.tracking-step-node.active .tracking-node-icon {
+    background: linear-gradient(135deg, var(--primary-color, #ba0606) 0%, #880000 100%);
+    border-color: var(--white, #ffffff);
+    color: var(--white, #ffffff);
+    box-shadow: 0 8px 22px rgba(186, 6, 6, 0.35);
+}
+
+.tracking-step-node.active .tracking-node-icon {
+    border-color: var(--accent-gold, #ffb300);
+    animation: activeStepPulse 1.8s infinite;
+}
+
+@keyframes activeStepPulse {
+    0% { box-shadow: 0 0 0 0 rgba(186, 6, 6, 0.6); }
+    70% { box-shadow: 0 0 0 12px rgba(186, 6, 6, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(186, 6, 6, 0); }
+}
+
+.tracking-step-name {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 2px;
+}
+
+.tracking-step-time {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* HISTORY TIMELINE TABLE */
+.tracking-history-wrap {
+    padding: 28px;
+    background: #f8fafc;
+    border-top: 1.5px solid #e2e8f0;
+}
+
+.tracking-history-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tracking-table-custom {
+    background: var(--white, #ffffff);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid #e2e8f0;
+}
+
+.tracking-table-custom table {
+    margin: 0;
+}
+
+.tracking-table-custom th {
+    background: #f1f5f9;
+    color: var(--text-dark, #1e293b);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 18px;
+    border-bottom: 1.5px solid #e2e8f0;
+}
+
+.tracking-table-custom td {
+    padding: 14px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.tracking-table-custom tr:last-child td {
+    border-bottom: 0;
+}
+
+/* HELPLINE ASSISTANCE CARD */
+.tracking-support-banner {
+    background: linear-gradient(135deg, rgba(186, 6, 6, 0.05) 0%, rgba(255, 179, 0, 0.08) 100%);
+    border: 1.5px dashed rgba(186, 6, 6, 0.25);
+    border-radius: 20px;
+    padding: 22px 26px;
+    margin: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tracking-support-text h5 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-dark, #1e293b);
+    margin-bottom: 4px;
+}
+
+.tracking-support-text p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+.tracking-support-btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-track-call {
+    background: var(--primary-color, #ba0606);
+    color: var(--white, #ffffff) !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(186, 6, 6, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-track-call:hover {
+    background: #900000;
+    transform: translateY(-2px);
+}
+
+.btn-track-wa {
+    background: #25D366;
+    color: var(--white, #ffffff) !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-track-wa:hover {
+    background: #1eb857;
+    transform: translateY(-2px);
+}
+
