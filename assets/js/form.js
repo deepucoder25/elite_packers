@@ -13,20 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 color: #ff3333 !important;
                 font-size: 0.75rem !important;
                 font-weight: bold !important;
-                margin-top: 5px !important;
-                margin-bottom: 5px !important;
+                margin-top: 4px !important;
+                margin-bottom: 2px !important;
                 text-align: left !important;
-                padding-left: 10px !important;
+                padding-left: 4px !important;
                 display: flex !important;
                 align-items: center !important;
                 gap: 5px !important;
                 animation: fieldErrorFadeIn 0.3s ease-out !important;
-            }
-            .field-wrap .field-ico {
-                top: 14px !important;
-            }
-            .field-wrap.top-ico .field-ico {
-                top: 14px !important;
+                width: 100% !important;
             }
             @keyframes fieldErrorFadeIn {
                 from { opacity: 0; transform: translateY(-5px); }
@@ -65,17 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorDiv.className = "field-error-msg";
                 errorDiv.innerHTML = `<i class="bi bi-exclamation-circle-fill"></i> ${message}`;
                 
-                // Find the wrapper (either .field-wrap, .form-group, or parent)
-                const wrapper = inputEl.closest(".field-wrap") || inputEl.closest(".form-group") || inputEl.parentElement;
-                
-                // Force wrap if wrapper is a flex container
-                const computedStyle = window.getComputedStyle(wrapper);
-                if (computedStyle.display === "flex") {
-                    wrapper.style.flexWrap = "wrap";
+                // Find icon wrapper if present (.form-icon-wrap, .form-icon, .field-wrap, .input-group)
+                const iconWrap = inputEl.closest(".form-icon-wrap") || inputEl.closest(".form-icon") || inputEl.closest(".field-wrap") || inputEl.closest(".input-group");
+                if (iconWrap) {
+                    iconWrap.after(errorDiv);
+                } else if (inputEl.parentElement) {
+                    inputEl.after(errorDiv);
                 }
-                
-                // Append inside the wrapper
-                wrapper.appendChild(errorDiv);
             }
 
             // Validate Name
