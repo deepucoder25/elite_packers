@@ -1,4 +1,6 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+include 'city_content.php';
+?>
 
 <!-- City About Section (50/50 Split + 2 Full-Width col-12 Light SEO Boxes + Full-Width Counter Bar) -->
 <section class="pm-city-about-section">
@@ -13,33 +15,7 @@
           <i class="bi bi-shield-fill-check text-gold me-1"></i> ISO 9001:2015 Certified Relocation Partner
         </span>
         
-        <h2 class="pm-city-about-title mt-2">
-          Top Rated Packers and Movers in <span class="text-danger"><?= htmlspecialchars($city) ?></span>
-        </h2>
-
-        <p class="pm-city-about-lead mb-3">
-          Planning a move in <strong><?= htmlspecialchars($city) ?></strong>? <strong><?= htmlspecialchars($company3) ?></strong> is your trusted local and domestic relocation specialist in <?= htmlspecialchars($city) ?>, <?= htmlspecialchars($state) ?>. Whether you are shifting your 1/2/3 BHK apartment locally or relocating your commercial office across India, our trained moving crew handles end-to-end packing, loading, transport, and door-to-door placement with zero stress.
-        </p>
-
-        <p class="text-muted fs-14 mb-3">
-          Navigating residential society permissions, elevator restrictions, and traffic timings in <strong><?= htmlspecialchars($city) ?></strong> requires experienced movers. We use 5-layer corrugated sheets, heavy-duty bubble wraps, furniture edge guards, and waterproof stretch films to guarantee 100% scratch-free protection for your valuable furniture, fragile kitchenware, and electronics.
-        </p>
-
-        <!-- SEO Relocation Keywords Tags -->
-        <div class="d-flex flex-wrap gap-2 mb-3">
-          <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm fs-12">
-            <i class="bi bi-house-door-fill text-danger me-1"></i> Home Shifting <?= htmlspecialchars($city) ?>
-          </span>
-          <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm fs-12">
-            <i class="bi bi-building text-danger me-1"></i> Office Relocation
-          </span>
-          <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm fs-12">
-            <i class="bi bi-truck text-danger me-1"></i> Vehicle Transport
-          </span>
-          <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm fs-12">
-            <i class="bi bi-box-seam text-danger me-1"></i> Warehousing Storage
-          </span>
-        </div>
+        <?= $htmlcontent ?>
 
         <!-- Transparent Glass Feature Box Grid -->
         <div class="row g-2 g-sm-3 my-3">
@@ -89,7 +65,7 @@
           
           <!-- Box 1: Large Main Image (Tall Box on Left) -->
           <div class="pm-collage-box-1">
-            <img src="<?= base_url('assets/images/home_modules/about.jpg') ?>" alt="Household Relocation in <?= htmlspecialchars($city) ?>" loading="lazy">
+            <img src="<?= base_url('assets/images/services_modules/loading-unloading.jpg') ?>" alt="Household Relocation in <?= htmlspecialchars($city) ?>" loading="lazy">
             <span class="pm-box-img-tag"><i class="bi bi-house-door-fill text-gold me-1"></i> Household Shifting</span>
           </div>
 
@@ -124,17 +100,7 @@
           <i class="bi bi-geo-alt-fill pm-seo-watermark"></i>
 
           <span class="badge bg-danger mb-2 px-3 py-2 rounded-pill fs-12">Local Relocation Insights</span>
-          <h3 class="pm-city-seo-title">
-            <span class="pm-seo-title-icon"><i class="bi bi-geo-alt-fill"></i></span>
-            What Makes Shifting Services in <?= htmlspecialchars($city) ?> Unique?
-          </h3>
-
-          <p class="text-muted fs-15 mb-3">
-            Every city presents its own set of moving challenges. In <strong><?= htmlspecialchars($city) ?></strong>, seasonal weather changes necessitate multi-layer waterproof stretch wrapping for wooden furniture and home electronics. Furthermore, residential high-rise apartments often require coordinated elevator booking and specific loading slot clearances.
-          </p>
-          <p class="text-muted fs-15 mb-4">
-            Families and working professionals looking for <strong>Best Packers and Movers in <?= htmlspecialchars($city) ?></strong> choose <strong><?= htmlspecialchars($company3) ?></strong> because we provide dedicated container vehicles, experienced supervisors, and organized carton labeling to prevent any end-destination confusion.
-          </p>
+          <?= $htmlcontent1 ?>
 
           <!-- Mini Glass SEO Pills -->
           <div class="row g-2 g-sm-3">
@@ -175,17 +141,7 @@
           <i class="bi bi-shield-check pm-seo-watermark-gold"></i>
 
           <span class="badge bg-warning text-dark mb-2 px-3 py-2 rounded-pill fs-12 font-weight-bold">Guaranteed Safety &amp; Pricing</span>
-          <h3 class="pm-city-seo-title-gold">
-            <span class="pm-seo-title-icon-gold"><i class="bi bi-shield-lock-fill"></i></span>
-            Why Professional Movers in <?= htmlspecialchars($city) ?> Guarantee Complete Peace of Mind
-          </h3>
-
-          <p class="text-muted fs-15 mb-3">
-            Hiring random transport vendors often leads to unmentioned loading fees, damaged goods, or delayed delivery schedules. Professional relocation with <strong><?= htmlspecialchars($company3) ?></strong> ensures systematic handling: fragile glassware is packed in heavy bubble wrap, furniture corners are cushioned with foam pads, and washing machines are secured with transit bolts.
-          </p>
-          <p class="text-muted fs-15 mb-4">
-            Our pricing for <strong>Packers and Movers in <?= htmlspecialchars($city) ?></strong> remains 100% transparent with zero hidden costs. You receive an itemized quotation up front covering labor, packing material, toll taxes, and transit insurance.
-          </p>
+          <?= $htmlcontent2 ?>
 
           <!-- 2 Light Feature Highlight Cards -->
           <div class="row g-3">
