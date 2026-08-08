@@ -67,6 +67,7 @@ class MX_Controller
         $this->comp['instagramhtml'] = "";
         $this->comp['twitterhtml'] = "";
         $this->comp['linkedinhtml'] = "";
+        $this->comp['pinteresthtml'] = "";
         $this->comp['whatsapphtml'] = "https://wa.me/919773950025";
         $this->comp['whatsapphtml1'] = "https://wa.me/918796338791";
 

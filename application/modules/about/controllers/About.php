@@ -39,11 +39,23 @@ class About extends MX_Controller
 
     function testimonials()
     {
-        $this->load->database();
-        $this->db->order_by('r_id', 'desc');
-        $this->db->where('status', 1);
-        $data['reviews'] = $this->db->get('reviews');
-        $data['company3'] = isset($this->comp['company3']) ? $this->comp['company3'] : 'Elite Packers and Movers';
+        $reviews = null;
+        try {
+            @$this->load->database();
+            if (isset($this->db) && is_object($this->db) && @$this->db->conn_id && @$this->db->table_exists('reviews')) {
+                $this->db->order_by('r_id', 'desc');
+                $this->db->where('status', 1);
+                $reviews = @$this->db->get('reviews');
+            }
+        } catch (\Throwable $e) {
+            $reviews = null;
+        } catch (\Exception $e) {
+            $reviews = null;
+        }
+
+        $company_name = isset($this->comp['company3']) ? $this->comp['company3'] : 'Elite Packers and Movers';
+        $data['reviews'] = $reviews;
+        $data['company3'] = $company_name;
 
         $data['title'] = "Customer Testimonials & Ratings | " . $data['company3'];
         $data['description'] = "Read genuine client testimonials and feedback about " . $data['company3'] . ". See how we deliver hassle-free home, vehicle, and office relocations across India.";

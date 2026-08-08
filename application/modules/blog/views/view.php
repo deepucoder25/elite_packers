@@ -49,7 +49,10 @@
                         <!-- Blog Details -->
                         <h2 class="fw-bold mb-4 blog-details-title"><?= @$query[0]->title ?></h2>
                         <div class="blog-content-wrapper text-muted">
-                            <?= nl2br(@$query[0]->content) ?>
+                            <?php 
+                            $body_text = !empty($query[0]->content) ? $query[0]->content : (!empty($query[0]->description) ? $query[0]->description : '');
+                            echo nl2br($body_text);
+                            ?>
                         </div>
                     </div>
                 </div>

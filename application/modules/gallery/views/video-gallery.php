@@ -21,7 +21,7 @@ $this->load->view('about/dynamic_breadcrumbs', [
                     <h2 class="service-section-title">Logistics Process Videos</h2>
                     <div class="about-service-text mb-4">
                         <p>
-                            At <strong><?= $company3 ?></strong>, we maintain complete transparency in our logistics operations. Watch our field videos to see how our trained professionals handle heavy-duty cargo loading, customs clearance, and safe global transportation to ensure a worry-free shipping experience.
+                            At <strong><?= isset($company3) ? $company3 : 'Elite Packers and Movers' ?></strong>, we maintain complete transparency in our logistics operations. Watch our field videos to see how our trained professionals handle heavy-duty cargo loading, customs clearance, and safe global transportation to ensure a worry-free shipping experience.
                         </p>
                     </div>
 
@@ -65,5 +65,3 @@ $this->load->view('about/dynamic_breadcrumbs', [
         </div>
     </div>
 </section>
-
-

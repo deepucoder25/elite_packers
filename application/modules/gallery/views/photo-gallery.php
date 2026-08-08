@@ -26,7 +26,7 @@ $this->load->view('about/dynamic_breadcrumbs', [
             Visual Showcase of Our <span class="text-danger">Relocation &amp; Moving Services</span>
           </h1>
           <p class="about-lead-text mb-0 fs-15">
-            Take an exclusive look behind the scenes of <strong><?= htmlspecialchars($company3) ?></strong>. From heavy-duty 5-layer bubble packing to specialized vehicle container loading and climate-controlled warehouse storage, our gallery demonstrates our commitment to safety and quality.
+            Take an exclusive look behind the scenes of <strong><?= htmlspecialchars(isset($company3) ? $company3 : 'Elite Packers and Movers') ?></strong>. From heavy-duty 5-layer bubble packing to specialized vehicle container loading and climate-controlled warehouse storage, our gallery demonstrates our commitment to safety and quality.
           </p>
         </div>
 

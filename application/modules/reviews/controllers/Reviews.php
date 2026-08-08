@@ -10,18 +10,26 @@ class Reviews extends MX_Controller
 
     function index()
     {
-        $this->load->database();
         $this->load->library('pagination');
-        
         $star_filter = $this->input->get('star');
-        
-        // Count total active reviews for pagination
-        $this->db->where('status', 1);
-        if ($star_filter) {
-            $this->db->where('stars', $star_filter);
+        $total_rows = 0;
+        $query = null;
+
+        try {
+            @$this->load->database();
+            if (isset($this->db) && is_object($this->db) && @$this->db->conn_id && @$this->db->table_exists('reviews')) {
+                $this->db->where('status', 1);
+                if ($star_filter) {
+                    $this->db->where('stars', $star_filter);
+                }
+                $total_rows = $this->db->count_all_results('reviews');
+            }
+        } catch (\Throwable $e) {
+            $total_rows = 0;
+        } catch (\Exception $e) {
+            $total_rows = 0;
         }
-        $total_rows = $this->db->count_all_results('reviews');
-        
+
         // Pagination Config
         $config['base_url'] = site_url('reviews');
         $config['total_rows'] = $total_rows;
@@ -54,19 +62,28 @@ class Reviews extends MX_Controller
         $offset = $this->input->get('per_page') ? (int) $this->input->get('per_page') : 0;
 
         // Fetch data
-        $this->db->order_by('r_id', 'desc');
-        $this->db->where('status', 1);
-        if ($star_filter) {
-            $this->db->where('stars', $star_filter);
+        try {
+            if (isset($this->db) && is_object($this->db) && @$this->db->conn_id && @$this->db->table_exists('reviews')) {
+                $this->db->order_by('r_id', 'desc');
+                $this->db->where('status', 1);
+                if ($star_filter) {
+                    $this->db->where('stars', $star_filter);
+                }
+                $query = @$this->db->get('reviews', $config['per_page'], $offset);
+            }
+        } catch (\Throwable $e) {
+            $query = null;
+        } catch (\Exception $e) {
+            $query = null;
         }
         
-        $query = $this->db->get('reviews', $config['per_page'], $offset);
-        
+        $company_name = isset($this->comp['company3']) ? $this->comp['company3'] : 'Elite Packers and Movers';
         $data['reviews'] = $query;
+        $data['company3'] = $company_name;
         $data['pagination'] = $this->pagination->create_links();
-        $data['title'] = "Verified Customer Reviews & Ratings | " . $this->comp['company3'];
-        $data['description'] = "Read verified customer reviews, ratings, and real client feedback about " . $this->comp['company3'] . ". Check our service quality for home and vehicle relocation.";
-        $data['keywords'] = "customer reviews, packers movers ratings, client feedback, genuine shifting reviews, " . $this->comp['company3'] . " ratings";
+        $data['title'] = "Verified Customer Reviews & Ratings | " . $company_name;
+        $data['description'] = "Read verified customer reviews, ratings, and real client feedback about " . $company_name . ". Check our service quality for home and vehicle relocation.";
+        $data['keywords'] = "customer reviews, packers movers ratings, client feedback, genuine shifting reviews, " . $company_name . " ratings";
         $data['module'] = "reviews";
         $data['view_file'] = "reviews";
         echo Modules::run('template/layout2', $data);
