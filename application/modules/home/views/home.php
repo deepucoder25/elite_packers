@@ -9,6 +9,9 @@ $this->load->view('service_widget');
 // Load the Process widget
 $this->load->view('process_widget');
 
+// Load the Branches widget
+$this->load->view('branches_widget');
+
 // Load the Reviews widget
 $this->load->view('review_widget');
 
