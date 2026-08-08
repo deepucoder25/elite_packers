@@ -179,27 +179,28 @@
                         </svg>
                     </div>
 
+                    <!-- Floating Experience Circular Badge (Desktop Only) -->
+                    <div class="about-experience-badge d-none d-lg-flex">
+                        <div class="badge-icon-wrap">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"/>
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                                <path d="m9 8 2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="badge-exp-number">
+                            <?= $yearsExperience ?> Years
+                        </div>
+                        <div class="badge-exp-label">
+                            of Trust &amp;<br>Excellence
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Right Image Showcase Column -->
                 <div class="col-lg-5 col-12 about-image-col position-relative">
                     <div class="about-image-inner position-relative">
-                        <!-- Floating Experience Circular Badge -->
-                        <div class="about-experience-badge">
-                            <div class="badge-icon-wrap">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="8" r="6"/>
-                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-                                    <path d="m9 8 2 2 4-4"/>
-                                </svg>
-                            </div>
-                            <div class="badge-exp-number">
-                                <?= $yearsExperience ?> Years
-                            </div>
-                            <div class="badge-exp-label">
-                                of Trust &amp;<br>Excellence
-                            </div>
-                        </div>
 
                         <!-- Clean Fallback Card Graphic when Image is Pending -->
                         <div class="about-img-placeholder d-flex flex-column align-items-center justify-content-center text-center p-4">
