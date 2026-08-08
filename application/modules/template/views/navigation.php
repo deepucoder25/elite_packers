@@ -212,6 +212,7 @@
               <li><a href="<?= site_url('loading-unloading') ?>"><i class="bi bi-truck item-icon"></i> Loading &amp; Unloading</a></li>
               <li><a href="<?= site_url('storage-services') ?>"><i class="bi bi-archive item-icon"></i> Storage Services</a></li>
               <li><a href="<?= site_url('custom-relocation') ?>"><i class="bi bi-shield-check item-icon"></i> Custom Relocation</a></li>
+              <li><a href="<?= site_url('iba-approved-packers-and-movers') ?>"><i class="bi bi-patch-check item-icon"></i> IBA Approved Packers</a></li>
             </ul>
           </div>
 

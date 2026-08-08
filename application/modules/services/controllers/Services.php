@@ -86,4 +86,14 @@ class Services extends MX_Controller
         $data['view_file'] = "custom_relocation";
         echo Modules::run('template/layout2', $data);
     }
+
+    function ibaApproved()
+    {
+        $data['title'] = "IBA Approved Packers and Movers | " . $this->comp['company3'];
+        $data['description'] = "IBA Approved Packers and Movers by " . $this->comp['company3'] . ". Official Indian Banks' Association approved bills, 100% genuine relocation & bank employee shifting services across India.";
+        $data['keywords'] = "IBA approved packers and movers, IBA approved bills, bank employee shifting, IBA movers India, " . $this->comp['company3'];
+        $data['module'] = "services";
+        $data['view_file'] = "iba";
+        echo Modules::run('template/layout2', $data);
+    }
 }

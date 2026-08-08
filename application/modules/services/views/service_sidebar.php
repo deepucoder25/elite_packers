@@ -10,6 +10,7 @@ $all_services = [
     'loading-unloading' => ['name' => 'Loading & Unloading', 'icon' => 'bi-truck-flatbed'],
     'storage-services' => ['name' => 'Storage Services', 'icon' => 'bi-building-lock'],
     'custom-relocation' => ['name' => 'Custom Relocation', 'icon' => 'bi-star-fill'],
+    'iba-approved-packers-and-movers' => ['name' => 'IBA Approved Packers', 'icon' => 'bi-patch-check-fill'],
 ];
 ?>
 

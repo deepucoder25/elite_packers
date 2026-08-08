@@ -154,6 +154,7 @@ $footer_city_cols = [
               <li><a href="<?= site_url('bike-transportation') ?>"><i class="bi bi-bicycle item-icon"></i> Bike Transportation</a></li>
               <li><a href="<?= site_url('storage-services') ?>"><i class="bi bi-archive item-icon"></i> Warehouse Storage</a></li>
               <li><a href="<?= site_url('custom-relocation') ?>"><i class="bi bi-shield-check item-icon"></i> Custom Relocation</a></li>
+              <li><a href="<?= site_url('iba-approved-packers-and-movers') ?>"><i class="bi bi-patch-check item-icon"></i> IBA Approved Packers</a></li>
             </ul>
           </div>
         </div>

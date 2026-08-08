@@ -37,6 +37,7 @@ $route["packing-and-moving"] = "services/packingMoving";
 $route["loading-unloading"] = "services/loadingUnloading";
 $route["storage-services"] = "services/storage";
 $route["custom-relocation"] = "services/customRelocation";
+$route["iba-approved-packers-and-movers"] = "services/ibaApproved";
 
 // Legacy/Compatibility Routes
 $route["car-transportation-service"] = "services/car";
