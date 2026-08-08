@@ -1949,3 +1949,43 @@
 .state-card-box:hover .state-card-title {
     color: #ba0606;
 }
+
+/* ==========================================================================
+   Red Process Counter Stats Banner (Exact Match to Reference Screenshot)
+   ========================================================================== */
+.process-counter-banner {
+    background: #ba0606;
+    background: linear-gradient(135deg, #d31010 0%, #ba0606 100%);
+    box-shadow: 0 10px 30px rgba(186, 6, 6, 0.2);
+    padding: 45px 0 !important;
+    border-radius: 0 !important;
+    width: 100%;
+}
+
+.process-counter-banner .counter-val {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900 !important;
+    font-size: 3.4rem;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+
+.process-counter-banner .counter-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.process-counter-banner .counter-sub {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9) !important;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid rgba(255, 255, 255, 0.25) !important;
+    }
+}

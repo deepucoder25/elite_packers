@@ -1,5 +1,70 @@
-<!-- FOOTER SECTION (SAME TO SAME REFERENCE DESIGN) -->
 <?php
+$footer_city_cols = [
+    [
+        "Packers & Movers in Faridabad" => ["link" => "faridabad", "statename" => "haryana"],
+        "Packers & Movers in Sonepat" => ["link" => "sonepat", "statename" => "haryana"],
+        "Packers & Movers in Palwal" => ["link" => "palwal", "statename" => "haryana"],
+        "Packers & Movers in Noida" => ["link" => "noida", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Bulandshahr" => ["link" => "bulandshahr", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Muzaffarnagar" => ["link" => "muzaffarnagar", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Ahmedabad" => ["link" => "ahmedabad", "statename" => "gujarat"],
+        "Packers & Movers in Bhatinda" => ["link" => "bhatinda", "statename" => "punjab"],
+        "Packers & Movers in Chennai" => ["link" => "chennai", "statename" => "tamil-nadu"],
+        "Packers & Movers in Gwalior" => ["link" => "gwalior", "statename" => "madhya-pradesh"],
+        "Packers & Movers in Jaipur" => ["link" => "jaipur", "statename" => "rajasthan"],
+        "Packers & Movers in Lucknow" => ["link" => "lucknow", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Nagpur" => ["link" => "nagpur", "statename" => "maharashtra"],
+        "Packers & Movers in Ranchi" => ["link" => "ranchi", "statename" => "jharkhand"]
+    ],
+    [
+        "Packers & Movers in Gurgaon" => ["link" => "gurgaon", "statename" => "haryana"],
+        "Packers & Movers in Rewari" => ["link" => "rewari", "statename" => "haryana"],
+        "Packers & Movers in Bhiwani" => ["link" => "bhiwani", "statename" => "haryana"],
+        "Packers & Movers in Meerut" => ["link" => "meerut", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Baghpat" => ["link" => "baghpat", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Alwar" => ["link" => "alwar", "statename" => "rajasthan"],
+        "Packers & Movers in Aligarh" => ["link" => "aligarh", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Bhopal" => ["link" => "bhopal", "statename" => "madhya-pradesh"],
+        "Packers & Movers in Dehradun" => ["link" => "dehradun", "statename" => "uttarakhand"],
+        "Packers & Movers in Hyderabad" => ["link" => "hyderabad", "statename" => "telangana"],
+        "Packers & Movers in Jalandhar" => ["link" => "jalandhar", "statename" => "punjab"],
+        "Packers & Movers in Ludhiana" => ["link" => "ludhiana", "statename" => "punjab"],
+        "Packers & Movers in Nashik" => ["link" => "nashik", "statename" => "maharashtra"],
+        "Packers & Movers in Srinagar" => ["link" => "srinagar", "statename" => "jammu-kashmir"]
+    ],
+    [
+        "Packers & Movers in Mewat" => ["link" => "mewat", "statename" => "haryana"],
+        "Packers & Movers in Jhajjar" => ["link" => "jhajjar", "statename" => "haryana"],
+        "Packers & Movers in Mahendragarh" => ["link" => "mahendragarh", "statename" => "haryana"],
+        "Packers & Movers in Ghaziabad" => ["link" => "ghaziabad", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Hapur" => ["link" => "hapur", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Bharatpur" => ["link" => "bharatpur", "statename" => "rajasthan"],
+        "Packers & Movers in Allahabad" => ["link" => "allahabad", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Bhubaneswar" => ["link" => "bhubaneswar", "statename" => "odisha"],
+        "Packers & Movers in Greater-Noida" => ["link" => "greater-noida", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Indore" => ["link" => "indore", "statename" => "madhya-pradesh"],
+        "Packers & Movers in Kanpur" => ["link" => "kanpur", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Meerut" => ["link" => "meerut-city", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Patna" => ["link" => "patna", "statename" => "bihar"],
+        "Packers & Movers in Surat" => ["link" => "surat", "statename" => "gujarat"]
+    ],
+    [
+        "Packers & Movers in Rohtak" => ["link" => "rohtak", "statename" => "haryana"],
+        "Packers & Movers in Panipat" => ["link" => "panipat", "statename" => "haryana"],
+        "Packers & Movers in Jind and Karnal" => ["link" => "karnal", "statename" => "haryana"],
+        "Packers & Movers in Gautam Budh Nagar" => ["link" => "noida", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Shamli" => ["link" => "shamli", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Agra" => ["link" => "agra", "statename" => "uttar-pradesh"],
+        "Packers & Movers in Bangalore" => ["link" => "bangalore", "statename" => "karnataka"],
+        "Packers & Movers in Chandigarh" => ["link" => "chandigarh", "statename" => "punjab"],
+        "Packers & Movers in Guwahati" => ["link" => "guwahati", "statename" => "assam"],
+        "Packers & Movers in Jabalpur" => ["link" => "jabalpur", "statename" => "madhya-pradesh"],
+        "Packers & Movers in Kolkata" => ["link" => "kolkata", "statename" => "west-bengal"],
+        "Packers & Movers in Mumbai" => ["link" => "mumbai", "statename" => "maharashtra"],
+        "Packers & Movers in Pune" => ["link" => "pune", "statename" => "maharashtra"],
+        "Packers & Movers in Vapi" => ["link" => "vapi", "statename" => "gujarat"]
+    ]
+];
 ?>
 <footer class="footer-section">
 
@@ -208,6 +273,30 @@
           </div>
 
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer All India Cities Red Links Grid (Exact Match to Reference Screenshot) -->
+  <div class="footer-city-links-section py-4">
+    <div class="container relative-z">
+      <div class="row g-3">
+        <?php foreach ($footer_city_cols as $col): ?>
+          <div class="col-6 col-md-3">
+            <ul class="footer-city-list list-unstyled mb-0">
+              <?php foreach ($col as $title => $item): 
+                $link = $item['link'];
+                $statename = $item['statename'];
+                ?>
+                <li>
+                  <a href="<?= site_url("$link-packers-movers-$statename") ?>" class="footer-city-item-link">
+                    <?= htmlspecialchars($title) ?>
+                  </a>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

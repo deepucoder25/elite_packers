@@ -93,6 +93,8 @@ class MX_Controller
         $this->comp['yearsExperience'] = "40+";
         $this->comp['secureShifting'] = "100%";
         $this->comp['statesCovered'] = "20+";
+        $this->comp['residentialMoving'] = "225";
+        $this->comp['corporateMoving'] = "70";
 
         $this->comp['sku'] = "PM28957";
         $this->comp['mpn'] = "SPM28957";

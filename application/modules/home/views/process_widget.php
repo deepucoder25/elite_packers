@@ -146,7 +146,88 @@ $process_steps = [
                 <?php endforeach; ?>
             </div>
         </div>
+    </div> <!-- Close top container -->
 
+    <!-- Full Width Red Counter Stats Banner (Edge to Edge Full Viewport Width) -->
+    <div class="process-counter-banner w-100 my-5">
+        <div class="container">
+            <div class="row text-center text-white g-4 align-items-center">
+                <!-- Residential Moving Counter -->
+                <div class="col-12 col-md-6 border-end-md">
+                    <div class="counter-box">
+                        <h3 class="counter-val fw-bold mb-1">
+                            <span class="process-counter-num" data-target="<?= $residentialMoving ?>">0</span> k+
+                        </h3>
+                        <h4 class="counter-title mb-2">Residential Moving</h4>
+                        <p class="counter-sub mb-0">
+                            We have completed over <?= $residentialMoving ?>k Residential Shiftings all over India.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Corporate Moving Counter -->
+                <div class="col-12 col-md-6">
+                    <div class="counter-box">
+                        <h3 class="counter-val fw-bold mb-1">
+                            <span class="process-counter-num" data-target="<?= $corporateMoving ?>">0</span> k+
+                        </h3>
+                        <h4 class="counter-title mb-2">Corporate Moving</h4>
+                        <p class="counter-sub mb-0">
+                            We pride ourself in moving over <?= $corporateMoving ?>k+ corporate offices and workspaces
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const counterElements = document.querySelectorAll(".process-counter-num");
+        let hasAnimated = false;
+
+        function startCounterAnimation() {
+            counterElements.forEach(counter => {
+                const target = parseInt(counter.getAttribute("data-target"), 10) || 0;
+                let current = 0;
+                const duration = 1600; // 1.6 seconds animation
+                const stepTime = 20;
+                const increment = target / (duration / stepTime);
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, stepTime);
+            });
+        }
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        hasAnimated = true;
+                        startCounterAnimation();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            const banner = document.querySelector(".process-counter-banner");
+            if (banner) {
+                observer.observe(banner);
+            }
+        } else {
+            startCounterAnimation();
+        }
+    });
+    </script>
+
+    <div class="container position-relative z-2">
         <!-- Bottom Safety Guarantee & CTA Bar -->
         <div class="process-cta-bar shadow-sm mt-5">
             <div class="row align-items-center g-3 text-center text-md-start">

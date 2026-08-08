@@ -602,6 +602,15 @@
 /* ==========================================================================
    QUOTE MODAL STYLING WITH WAVY HEADING HEADER & SITE COLOR VARIABLES
    ========================================================================== */
+/* Modal Z-Index Overrides (Ensures Modal Displays Above Fixed Scrolled Header) */
+.modal-backdrop {
+    z-index: 10400 !important;
+}
+
+.modal {
+    z-index: 10500 !important;
+}
+
 .contact-quote-gap { gap: 12px; }
 .contact-custom-modal .modal-dialog { max-width: 520px; }
 .contact-custom-modal .modal-content { 

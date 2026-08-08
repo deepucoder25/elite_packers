@@ -647,3 +647,35 @@
     font-size: 13px;
 }
 
+/* ==========================================================================
+   Footer All India City Links Section (Matched to Reference Screenshot)
+   ========================================================================== */
+.footer-city-links-section {
+    background: var(--primary-color, #ba0606);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-city-list li {
+    margin-bottom: 5px;
+}
+
+.footer-city-item-link {
+    color: var(--white, #ffffff) !important;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.footer-city-item-link:hover {
+    color: var(--accent-gold, #ffb300) !important;
+    opacity: 1;
+    transform: translateX(4px);
+}
+
