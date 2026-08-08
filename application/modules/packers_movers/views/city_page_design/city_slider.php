@@ -5,101 +5,104 @@
   <!-- Dark Gradient Background Overlay -->
   <div class="hero-bg-overlay"></div>
 
-  <div class="container relative-z py-4 py-lg-5">
-    <div class="row align-items-center g-4 g-lg-5">
+  <div class="container relative-z py-3 py-lg-4">
+    <!-- Single Translucent Dark Glass Container Box (Wrapping Hero Content & Quote Form) -->
+    <div class="hero-glass-main-box p-3 p-sm-4 p-lg-5">
+      <div class="row align-items-center g-4 g-lg-5">
 
-      <!-- Left Column: Hero Text, Feats, Rating & CTAs -->
-      <div class="col-12 col-lg-7 text-white">
-        
-        <!-- Hero Breadcrumb Navigation Trail -->
-        <nav aria-label="breadcrumb" class="hero-breadcrumb-nav mb-3">
-          <ol class="breadcrumb hero-breadcrumb mb-0">
-            <li class="breadcrumb-item">
-              <a href="<?= site_url() ?>"><i class="bi bi-house-door-fill me-1"></i>Home</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="<?= site_url('our-branches') ?>">Our Branches</a>
-            </li>
-            <li class="breadcrumb-item">
-              <span class="bc-state-text"><?= htmlspecialchars($state) ?></span>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              <span class="bc-city-text text-gold"><?= htmlspecialchars($city) ?></span>
-            </li>
-          </ol>
-        </nav>
+        <!-- Left Column: Hero Text, Feats, Rating & CTAs -->
+        <div class="col-12 col-lg-7 text-white">
+          
+          <!-- Hero Breadcrumb Navigation Trail -->
+          <nav aria-label="breadcrumb" class="hero-breadcrumb-nav mb-3">
+            <ol class="breadcrumb hero-breadcrumb mb-0">
+              <li class="breadcrumb-item">
+                <a href="<?= site_url() ?>"><i class="bi bi-house-door-fill me-1"></i>Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="<?= site_url('our-branches') ?>">Our Branches</a>
+              </li>
+              <li class="breadcrumb-item">
+                <span class="bc-state-text"><?= htmlspecialchars($state) ?></span>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <span class="bc-city-text text-gold"><?= htmlspecialchars($city) ?></span>
+              </li>
+            </ol>
+          </nav>
 
-        <!-- Slanted Yellow Tag Badge -->
-        <div class="hero-tag-badge">
-          <span>SAFE | SECURE | ISO CERTIFIED RELOCATION IN <?= strtoupper(htmlspecialchars($city)) ?></span>
-        </div>
-
-        <!-- Main Title -->
-        <h1 class="hero-main-title mt-3" itemprop="name">
-          PACKERS AND MOVERS IN <span class="text-gold"><?= strtoupper(htmlspecialchars($city)) ?></span>
-        </h1>
-
-        <!-- Hero Subtitle -->
-        <p class="hero-lead-text my-3" itemprop="description">
-          Top-rated packing, household shifting, office relocation &amp; vehicle transport in <?= htmlspecialchars($city) ?> with 100% scratch-free delivery and zero hidden charges.
-        </p>
-
-        <!-- 4 Circular Icon Badges -->
-        <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4 my-4">
-          <div class="hero-feat-item d-flex align-items-center gap-2">
-            <div class="hero-feat-icon"><i class="bi bi-shield-check text-danger"></i></div>
-            <span class="hero-feat-text">Safe<br>Transportation</span>
+          <!-- Slanted Yellow Tag Badge -->
+          <div class="hero-tag-badge">
+            <span>SAFE | SECURE | ISO CERTIFIED RELOCATION IN <?= strtoupper(htmlspecialchars($city)) ?></span>
           </div>
-          <div class="hero-feat-item d-flex align-items-center gap-2">
-            <div class="hero-feat-icon"><i class="bi bi-box-seam text-danger"></i></div>
-            <span class="hero-feat-text">5-Layer<br>Packing</span>
-          </div>
-          <div class="hero-feat-item d-flex align-items-center gap-2">
-            <div class="hero-feat-icon"><i class="bi bi-people text-danger"></i></div>
-            <span class="hero-feat-text">Trained<br>Professionals</span>
-          </div>
-          <div class="hero-feat-item d-flex align-items-center gap-2">
-            <div class="hero-feat-icon"><i class="bi bi-truck text-danger"></i></div>
-            <span class="hero-feat-text">On-Time<br>Delivery</span>
-          </div>
-        </div>
 
-        <!-- Google Review Badge Card -->
-        <div class="hero-google-card d-inline-flex align-items-center gap-3 p-3 rounded-4 mb-4">
-          <div class="google-logo-wrap">
-            <svg width="32" height="32" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.27v3.13C3.25 21.3 7.31 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.28 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.63H1.27C.46 8.24 0 10.06 0 12s.46 3.76 1.27 5.37l4.01-3.13z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.27 6.63l4.01 3.13c.95-2.85 3.6-4.96 6.72-4.96z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="d-flex align-items-center gap-2">
-              <strong class="fs-5 text-dark">4.8</strong>
-              <div class="text-warning fs-6">★★★★★</div>
+          <!-- Main Title -->
+          <h1 class="hero-main-title mt-3" itemprop="name">
+            PACKERS AND MOVERS IN <span class="text-gold"><?= strtoupper(htmlspecialchars($city)) ?></span>
+          </h1>
+
+          <!-- Hero Subtitle -->
+          <p class="hero-lead-text my-3" itemprop="description">
+            Top-rated packing, household shifting, office relocation &amp; vehicle transport in <?= htmlspecialchars($city) ?> with 100% scratch-free delivery and zero hidden charges.
+          </p>
+
+          <!-- 4 Circular Icon Badges -->
+          <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4 my-4">
+            <div class="hero-feat-item d-flex align-items-center gap-2">
+              <div class="hero-feat-icon"><i class="bi bi-shield-check text-danger"></i></div>
+              <span class="hero-feat-text">Safe<br>Transportation</span>
             </div>
-            <small class="text-muted fw-semibold">Based on 1,250+ Moving Reviews in <?= htmlspecialchars($city) ?></small>
+            <div class="hero-feat-item d-flex align-items-center gap-2">
+              <div class="hero-feat-icon"><i class="bi bi-box-seam text-danger"></i></div>
+              <span class="hero-feat-text">5-Layer<br>Packing</span>
+            </div>
+            <div class="hero-feat-item d-flex align-items-center gap-2">
+              <div class="hero-feat-icon"><i class="bi bi-people text-danger"></i></div>
+              <span class="hero-feat-text">Trained<br>Professionals</span>
+            </div>
+            <div class="hero-feat-item d-flex align-items-center gap-2">
+              <div class="hero-feat-icon"><i class="bi bi-truck text-danger"></i></div>
+              <span class="hero-feat-text">On-Time<br>Delivery</span>
+            </div>
           </div>
+
+          <!-- Google Review Badge Card -->
+          <div class="hero-google-card d-inline-flex align-items-center gap-3 p-3 rounded-4 mb-4">
+            <div class="google-logo-wrap">
+              <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.27v3.13C3.25 21.3 7.31 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.63H1.27C.46 8.24 0 10.06 0 12s.46 3.76 1.27 5.37l4.01-3.13z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.7 1.27 6.63l4.01 3.13c.95-2.85 3.6-4.96 6.72-4.96z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <strong class="fs-5 text-dark">4.8</strong>
+                <div class="text-warning fs-6">★★★★★</div>
+              </div>
+              <small class="text-muted fw-semibold">Based on 1,250+ Moving Reviews in <?= htmlspecialchars($city) ?></small>
+            </div>
+          </div>
+
+          <!-- CTA Buttons Row -->
+          <div class="hero-cta-buttons-wrap d-flex align-items-center gap-2 gap-sm-3">
+            <a href="#" class="btn-hero-red" data-bs-toggle="modal" data-bs-target="#qteModal">
+              <i class="bi bi-file-earmark-text-fill me-1 me-sm-2"></i> Get Free Quote
+            </a>
+            <a href="<?= isset($phonehtml) ? $phonehtml : 'tel:+919773950025' ?>" class="btn-hero-glass">
+              <i class="bi bi-telephone-fill me-1 me-sm-2 text-gold"></i> Call <?= isset($phone) ? htmlspecialchars($phone) : '+91 9773950025' ?>
+            </a>
+          </div>
+
         </div>
 
-        <!-- CTA Buttons Row -->
-        <div class="d-flex flex-wrap align-items-center gap-3">
-          <a href="#" class="btn-hero-red" data-bs-toggle="modal" data-bs-target="#qteModal">
-            <i class="bi bi-file-earmark-text-fill me-2"></i> Get Free Quote
-          </a>
-          <a href="<?= isset($phonehtml) ? $phonehtml : 'tel:+919773950025' ?>" class="btn-hero-glass">
-            <i class="bi bi-telephone-fill me-2 text-gold"></i> Call <?= isset($phone) ? htmlspecialchars($phone) : '+91 9773950025' ?>
-          </a>
+        <!-- Right Column: Loaded Quote Form View -->
+        <div class="col-12 col-lg-5">
+          <?php $this->load->view('contacts/quoteform.php'); ?>
         </div>
 
       </div>
-
-      <!-- Right Column: Loaded Quote Form View -->
-      <div class="col-12 col-lg-5">
-        <?php $this->load->view('contacts/quoteform.php'); ?>
-      </div>
-
     </div>
 
     <!-- Bottom Feature Strip (Ultra-Attractive Glass Banner) -->

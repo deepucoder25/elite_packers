@@ -22,7 +22,6 @@
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(10, 15, 25, 0.88) 0%, rgba(15, 23, 42, 0.75) 55%, rgba(15, 23, 42, 0.45) 100%);
     z-index: 1;
 }
 
@@ -226,15 +225,37 @@
     color: #ffffff !important;
 }
 
-/* Right Side Floating Form Card */
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 20, 30, 0.45) 0%, rgba(10, 15, 25, 0.35) 100%);
+    z-index: 1;
+}
+
+/* Light Translucent Dark Crimson & Gold Glass Container Box (Light Blur 6px) */
+.hero-glass-main-box {
+    background: rgba(18, 20, 32, 0.38);
+    background: linear-gradient(135deg, rgba(30, 8, 12, 0.42) 0%, rgba(15, 23, 42, 0.38) 50%, rgba(45, 8, 12, 0.35) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(255, 179, 0, 0.35);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 45px rgba(186, 6, 6, 0.2);
+    border-radius: 28px !important;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Right Side Floating Form Card (Light Blur 8px) */
 .hero-form-card {
-    background: rgba(15, 23, 42, 0.65);
-    border: 1.5px solid rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 24px;
-    padding: 26px 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(20, 25, 40, 0.35) 100%);
+    border: 1.5px solid rgba(255, 179, 0, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 22px;
+    padding: 24px 22px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(186, 6, 6, 0.2);
     position: relative;
     z-index: 10;
     animation: heroFadeInRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
@@ -272,12 +293,12 @@
 }
 
 .hero-form-label {
-    display: block;
+    display: inline-block;
     color: #ffffff !important;
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.3px;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .form-icon-wrap {
@@ -302,12 +323,12 @@
     height: 44px;
     padding-left: 42px;
     padding-right: 14px;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
     border-radius: 10px;
     font-size: 13.5px;
     font-weight: 600;
     color: #ffffff !important;
-    background-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
     transition: all 0.2s ease;
     color-scheme: dark;
@@ -447,6 +468,26 @@
     .hero-form-card {
         padding: 20px 16px;
         border-radius: 18px;
+    }
+
+    /* Force Both Hero CTA Buttons to stay in 1 single row on mobile view */
+    .hero-cta-buttons-wrap {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        gap: 6px !important;
+    }
+
+    .hero-cta-buttons-wrap .btn-hero-red,
+    .hero-cta-buttons-wrap .btn-hero-glass {
+        flex: 1 1 50% !important;
+        width: 50% !important;
+        padding: 10px 8px !important;
+        font-size: 12px !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
+        text-align: center !important;
     }
 }
 
