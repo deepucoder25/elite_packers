@@ -9,13 +9,13 @@
     color: var(--white);
     overflow: hidden;
     font-family: 'Outfit', sans-serif;
-    min-height: 680px;
-    padding-top: 145px;
+    min-height: 620px;
+    padding-top: 50px;
 }
 
 @media (max-width: 767px) {
     .hero-slider-section {
-        padding-top: 75px;
+        padding-top: 30px;
     }
 }
 

@@ -219,8 +219,8 @@ html, body {
    Main Header (White Fixed/Sticky Navigation Header)
    ========================================================================== */
 .main-header {
-    position: absolute;
-    top: 81px;
+    position: relative;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
@@ -228,20 +228,12 @@ html, body {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
     min-height: 70px;
     height: auto;
     display: flex;
     align-items: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, min-height 0.3s ease, padding 0.3s ease;
-}
-
-@media (max-width: 767px) {
-    .main-header {
-        top: 0;
-        min-height: 62px;
-        padding: 6px 0 !important;
-    }
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, min-height 0.3s ease;
 }
 
 .main-header.scrolled {
@@ -249,6 +241,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 9999;
     background: #ffffff !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -275,6 +268,55 @@ html, body {
 
 .main-header.scrolled .brand-logo {
     max-height: 80px;
+}
+
+/* Tablet & Responsive Screen Optimizations (768px - 1199px) */
+@media (max-width: 1199px) {
+    .top-info-item {
+        font-size: 11.5px;
+    }
+    .top-icon-circle {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+    .btn-green-payment, .btn-blue-branch {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+    .top-phone-pill {
+        font-size: 11.5px;
+        padding: 3px 8px;
+    }
+    .sub-bar-container {
+        width: 100%;
+        justify-content: center;
+        border-radius: 12px;
+        padding: 4px 8px;
+    }
+    .sub-bar-link {
+        font-size: 11px;
+        padding: 2px 4px;
+    }
+    .sub-bar-red-badge {
+        font-size: 11px;
+        padding: 2px 6px;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-header {
+        position: relative;
+        top: 0;
+        min-height: 65px;
+    }
+    .brand-logo {
+        max-width: 190px;
+        max-height: 55px;
+    }
+    .main-header.scrolled .brand-logo {
+        max-height: 55px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -625,9 +667,6 @@ body.menu-open {
 }
 
 @media (max-width: 991px) {
-    .main-header {
-        height: 70px;
-    }
 
     .brand-logo {
         width: 190px;

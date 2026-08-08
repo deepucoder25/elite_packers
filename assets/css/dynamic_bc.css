@@ -7,7 +7,7 @@
     position: relative;
     background: #080d1d;
     background: radial-gradient(circle at 10% 20%, #151b2e 0%, #080d1d 100%);
-    padding: 140px 0 65px 0;
+    padding: 50px 0 65px 0;
     margin-bottom: 0;
     overflow: hidden;
     color: var(--white);
