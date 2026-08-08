@@ -27,11 +27,19 @@
         <!-- Column 1: Logo & Company Description & Social Links -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="footer-brand-wrap">
-            <a href="<?= site_url() ?>" class="d-inline-block mb-3">
-              <img src="<?= base_url() ?>assets/images/logo/logo.png" alt="<?= $company3 ?> Logo" class="footer-logo-img" loading="lazy">
-            </a>
+            <div class="footer-text-brand mb-3">
+              <a href="<?= site_url() ?>" class="d-inline-flex align-items-center gap-2 text-decoration-none">
+                <div class="footer-brand-icon">
+                  <i class="bi bi-truck-front-fill text-gold fs-20"></i>
+                </div>
+                <div class="footer-brand-title">
+                  <span class="brand-text-white">ELITE</span>
+                  <span class="brand-text-gold">PACKERS &amp; MOVERS</span>
+                </div>
+              </a>
+            </div>
             <p class="footer-desc-text">
-              <?= $company3 ?> Packers and Movers is your trusted relocation partner, delivering safe, reliable and hassle-free moving services across India.
+              <strong><?= htmlspecialchars($company3) ?></strong> is your trusted relocation partner, delivering safe, reliable and hassle-free moving services across India.
             </p>
             <div class="footer-social-circle-wrap d-flex align-items-center gap-2 pt-2">
               <a href="<?= $facebookhtml ?>" class="footer-social-btn social-facebook" aria-label="Facebook">

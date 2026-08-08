@@ -143,15 +143,17 @@ html, body {
     -webkit-backdrop-filter: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
-    height: 80px;
+    height: auto;
+    padding: 0 !important;
     display: flex;
     align-items: center;
-    transition: background-color 0.35s ease, box-shadow 0.35s ease, height 0.35s ease;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, min-height 0.35s ease;
 }
 
 @media (max-width: 767px) {
     .main-header {
         top: 0;
+        padding: 0 !important;
     }
 }
 
@@ -165,19 +167,38 @@ html, body {
     -webkit-backdrop-filter: none !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
-    height: 75px;
+    min-height: 75px;
+    height: auto;
+    padding: 0 !important;
 }
 
 .brand-wrap {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     text-decoration: none;
 }
 
 .brand-logo {
-    width: 210px;
-    height: 70px;
+    width: auto;
+    max-width: 360px;
+    height: auto;
+    max-height: 125px;
     object-fit: contain;
+    transition: max-height 0.35s ease, width 0.35s ease;
+}
+
+.main-header.scrolled .brand-logo {
+    max-height: 95px;
+}
+
+@media (max-width: 575px) {
+    .brand-logo {
+        max-width: 200px;
+        max-height: 65px;
+    }
+    .main-header.scrolled .brand-logo {
+        max-height: 60px;
+    }
 }
 
 /* ==========================================================================
@@ -523,8 +544,8 @@ body.menu-open {
     }
 
     .brand-logo {
-        width: 160px;
-        height: 55px;
+        width: 190px;
+        height: 78px;
     }
 
     .btn-quote-gold {

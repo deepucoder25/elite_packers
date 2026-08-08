@@ -62,12 +62,52 @@
     opacity: 0.12;
 }
 
-/* Column 1 Logo & About */
-.footer-logo-img {
-    max-width: 220px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+/* Stylized Text Brand for Footer */
+.footer-text-brand a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1.5px solid var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 179, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-text-brand:hover .footer-brand-icon {
+    transform: scale(1.08) rotate(-5deg);
+    background: rgba(255, 179, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(255, 179, 0, 0.5);
+}
+
+.footer-brand-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.brand-text-white {
+    font-weight: 900;
+    font-size: 22px;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.brand-text-gold {
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 179, 0, 0.5);
 }
 
 .footer-desc-text {
