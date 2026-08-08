@@ -28,43 +28,64 @@
 
   <!-- Top Bar (Hidden on Mobile View < 768px) -->
   <div class="top-bar d-none d-md-block">
+    <!-- Top Gradient Accent Line -->
+    <div class="top-bar-stripe"></div>
+
     <div class="container-fluid px-2 px-sm-3 px-lg-4">
-      <div class="d-flex align-items-center justify-content-between top-bar-inner">
-        <!-- Left & Center Items in Gradient Bar -->
-        <div class="d-flex align-items-center gap-2 gap-lg-3 top-bar-left py-1 flex-grow-1">
-          <!-- Email Pill -->
-          <a href="<?= $mailhtml ?>" class="top-info-pill d-flex align-items-center gap-1 text-white">
-            <i class="bi bi-envelope-fill text-gold"></i> <span class="d-none d-xs-inline"><?= $mail ?></span><span class="d-inline d-xs-none">Email Us</span>
+      <!-- Row 1: Mail, Location, Payment Button, Branch Locator Button, Phone -->
+      <div class="d-flex align-items-center justify-content-between top-bar-row1 py-1">
+        <!-- Left: Mail & Location -->
+        <div class="d-flex align-items-center gap-3 top-bar-left">
+          <a href="<?= $mailhtml ?>" class="top-info-item text-decoration-none d-flex align-items-center gap-2">
+            <span class="top-icon-circle"><i class="bi bi-envelope-fill text-primary-red"></i></span>
+            <span><?= $mail ?></span>
           </a>
-
-          <!-- Location Pill (Desktop & Tablet) -->
-          <span class="top-info-pill d-none d-md-inline-flex align-items-center gap-1 text-white">
-            <i class="bi bi-geo-alt-fill text-gold"></i> <span><?= $addressRegion ?>, India</span>
+          <span class="top-info-item d-flex align-items-center gap-2">
+            <span class="top-icon-circle"><i class="bi bi-geo-alt-fill text-primary-red"></i></span>
+            <span><?= $addressRegion ?> India</span>
           </span>
-
-          <!-- Center Tagline (Desktop XL) -->
-          <div class="d-none d-xl-flex align-items-center gap-3 ms-auto me-auto top-bar-tagline text-white">
-            <span class="d-flex align-items-center gap-1"><i class="bi bi-shield-check text-gold fs-13"></i> Safe Move</span>
-            <span class="top-bar-dot">•</span>
-            <span class="d-flex align-items-center gap-1"><i class="bi bi-lock-fill text-gold fs-13"></i> Secure Move</span>
-            <span class="top-bar-dot">•</span>
-            <span class="d-flex align-items-center gap-1"><i class="bi bi-emoji-smile-fill text-gold fs-13"></i> Stress-Free Move</span>
-          </div>
-
-          <!-- Right Action Badges & Phone -->
-          <div class="d-flex align-items-center gap-2 ms-auto top-bar-right-items">
-            <a href="<?= site_url('our-branches') ?>" class="top-badge-pill white-pill d-none d-sm-inline-flex align-items-center gap-1">
-              <i class="bi bi-geo-alt-fill text-danger"></i> <span>Branch Locator</span>
-            </a>
-            <a href="<?= $phonehtml ?>" class="top-phone-pill d-flex align-items-center gap-1 gap-sm-2 text-white">
-              <i class="bi bi-telephone-fill phone-pulse"></i> <span><?= $phone ?></span>
-            </a>
-          </div>
         </div>
 
-        <!-- Right End Slanted Metallic Gold Badge (Desktop LG+) -->
-        <div class="top-bar-gold-badge d-none d-lg-flex align-items-center gap-1">
-          <i class="bi bi-star-fill text-dark fs-13"></i> <span>Since <?= $startYear ?></span>
+        <!-- Right: Payment Details, Select Nearest Branch, Phone -->
+        <div class="d-flex align-items-center gap-2 gap-lg-3 top-bar-right">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#qteModal" data-toggle="modal" data-target="#qteModal" onclick="openQuoteModal(event)" class="btn-green-payment shadow-sm">
+            <i class="bi bi-credit-card-fill me-1"></i> Payment Details !
+          </a>
+          <a href="<?= site_url('our-branches') ?>" class="btn-blue-branch shadow-sm">
+            <i class="bi bi-journal-bookmark-fill me-1"></i> <span>Select Nearest Branch</span>
+          </a>
+          <a href="<?= $phonehtml ?>" class="top-phone-pill text-decoration-none d-flex align-items-center gap-2 fw-bold ms-1">
+            <i class="bi bi-telephone-fill phone-pulse text-danger"></i> <span><?= $phone ?></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Row 2: Sub-bar with Links and Since Year -->
+      <div class="d-flex align-items-center justify-content-end justify-content-lg-end flex-wrap gap-2 top-bar-row2 py-1">
+        <div class="sub-bar-container d-flex align-items-center flex-wrap gap-1 fs-12">
+          <a href="<?= site_url('beware-of-online-frauds') ?>" class="sub-bar-link">
+            <i class="bi bi-shield-exclamation text-warning me-1"></i>Beware of Online Frauds
+          </a>
+          <span class="sub-bar-divider">|</span>
+          <a href="<?= site_url('our-branches') ?>" class="sub-bar-link">
+            <i class="bi bi-geo-alt text-danger me-1"></i>Branch Address
+          </a>
+          <span class="sub-bar-divider">|</span>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#qteModal" data-toggle="modal" data-target="#qteModal" onclick="openQuoteModal(event)" class="sub-bar-link">
+            <i class="bi bi-pencil-square text-primary me-1"></i>Request a Quote
+          </a>
+          <span class="sub-bar-divider">|</span>
+          <a href="<?= $phonehtml ?>" class="sub-bar-link">
+            <i class="bi bi-headset text-success me-1"></i>India Helpline <?= $phone ?>
+          </a>
+          <span class="sub-bar-divider">|</span>
+          <a href="<?= site_url('contact-us') ?>" class="sub-bar-link">
+            <i class="bi bi-person-plus text-info me-1"></i>Become a Branch Partner
+          </a>
+          <span class="sub-bar-divider">|</span>
+          <a href="<?= site_url('about-us') ?>" class="sub-bar-red-badge text-decoration-none">
+            <i class="bi bi-caret-down-fill text-danger me-1"></i><i class="bi bi-star-fill text-warning me-1 fs-11"></i> Since <?= $startYear ?> at your service *
+          </a>
         </div>
       </div>
     </div>
@@ -102,7 +123,7 @@
       <!-- Header Action Buttons (Yellow CTA + Hamburger) -->
       <div class="d-flex align-items-center gap-3">
         <!-- Get Free Quote Button -->
-        <a href="#" class="btn-quote-gold d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#qteModal">
+        <a href="#" class="btn-quote-gold d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#qteModal" data-toggle="modal" data-target="#qteModal" onclick="openQuoteModal(event)">
           <span>Get Free Quote</span>
         </a>
 
@@ -273,5 +294,19 @@
       window.addEventListener('scroll', () => {
         mainHeader.classList.toggle('scrolled', window.scrollY > 20);
       });
+    }
+
+    function openQuoteModal(e) {
+      if (e) e.preventDefault();
+      const el = document.getElementById('qteModal');
+      if (el) {
+        if (window.bootstrap && window.bootstrap.Modal) {
+          const modal = bootstrap.Modal.getInstance(el) || new bootstrap.Modal(el);
+          modal.show();
+        } else if (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) {
+          jQuery(el).modal('show');
+        }
+      }
+      return false;
     }
   </script>

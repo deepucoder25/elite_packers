@@ -90,5 +90,15 @@ class About extends MX_Controller
         $data['view_file'] = "terms";
         echo Modules::run('template/layout2', $data);
     }
+
+    function frauds()
+    {
+        $data['title'] = "How to Detect Fraud Packers and Movers Tips | Beware of Online Frauds";
+        $data['description'] = "Essential tips and guide on how to detect fraud packers and movers. Learn how to identify fake moving companies, avoid low-ball pricing traps, verify GST, and stay safe from online relocation scams.";
+        $data['keywords'] = "how to detect fraud packers and movers tips, fake packers movers awareness, beware of online frauds, relocation fraud prevention, verified packers movers tips";
+        $data['module'] = "about";
+        $data['view_file'] = "frauds";
+        echo Modules::run('template/layout2', $data);
+    }
 }
 
