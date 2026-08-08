@@ -69,13 +69,15 @@ $faqs = [
 
         <!-- Accordion Grid -->
         <div class="row g-3 g-lg-4">
-            <?php foreach ($faqs as $index => $faq): ?>
+            <?php foreach ($faqs as $index => $faq): 
+                $isOpen = ($index === 0);
+            ?>
                 <div class="col-lg-6 col-12 d-flex">
-                    <div class="faq-card w-100 flex-fill">
-                        <div class="faq-card-header d-flex align-items-center collapsed" 
+                    <div class="faq-card w-100 flex-fill<?= $isOpen ? ' active' : '' ?>">
+                        <div class="faq-card-header d-flex align-items-center<?= $isOpen ? '' : ' collapsed' ?>" 
                              data-bs-toggle="collapse" 
                              data-bs-target="#faq-collapse-<?= $index ?>" 
-                             aria-expanded="false" 
+                             aria-expanded="<?= $isOpen ? 'true' : 'false' ?>" 
                              role="button">
                             
                             <div class="faq-icon-wrap d-flex align-items-center justify-content-center">
@@ -91,7 +93,7 @@ $faqs = [
                             </div>
                         </div>
                         
-                        <div id="faq-collapse-<?= $index ?>" class="collapse" data-bs-parent="">
+                        <div id="faq-collapse-<?= $index ?>" class="collapse<?= $isOpen ? ' show' : '' ?>" data-bs-parent="">
                             <div class="faq-card-body">
                                 <p class="faq-answer m-0">
                                     <?= htmlspecialchars($faq['answer']) ?>
@@ -134,3 +136,48 @@ $faqs = [
 
     </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const faqHeaders = document.querySelectorAll(".faq-card-header");
+
+    faqHeaders.forEach(function (header) {
+        header.addEventListener("click", function (e) {
+            e.preventDefault();
+            const card = this.closest(".faq-card");
+            const targetId = this.getAttribute("data-bs-target");
+            const targetEl = document.querySelector(targetId);
+            const isAlreadyOpen = targetEl && targetEl.classList.contains("show");
+
+            // Close ALL other open FAQ cards across the section
+            document.querySelectorAll(".faq-card").forEach(function (otherCard) {
+                if (otherCard !== card) {
+                    otherCard.classList.remove("active");
+                    const otherHeader = otherCard.querySelector(".faq-card-header");
+                    if (otherHeader) {
+                        otherHeader.classList.add("collapsed");
+                        otherHeader.setAttribute("aria-expanded", "false");
+                    }
+                    const otherBody = otherCard.querySelector(".collapse");
+                    if (otherBody) {
+                        otherBody.classList.remove("show");
+                    }
+                }
+            });
+
+            // Toggle the clicked FAQ item
+            if (isAlreadyOpen) {
+                card.classList.remove("active");
+                this.classList.add("collapsed");
+                this.setAttribute("aria-expanded", "false");
+                if (targetEl) targetEl.classList.remove("show");
+            } else {
+                card.classList.add("active");
+                this.classList.remove("collapsed");
+                this.setAttribute("aria-expanded", "true");
+                if (targetEl) targetEl.classList.add("show");
+            }
+        });
+    });
+});
+</script>

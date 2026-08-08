@@ -497,6 +497,7 @@
     border-color: rgba(186, 6, 6, 0.25);
 }
 
+.faq-card.active,
 .faq-card:has(.faq-card-header:not(.collapsed)) {
     border-color: var(--primary-color);
     box-shadow: 0 12px 30px rgba(186, 6, 6, 0.12);
@@ -531,6 +532,7 @@
 }
 
 .faq-card:hover .faq-icon-wrap,
+.faq-card.active .faq-icon-wrap,
 .faq-card-header:not(.collapsed) .faq-icon-wrap {
     background-color: var(--primary-color);
     color: var(--white) !important;
@@ -538,6 +540,7 @@
 }
 
 .faq-card:hover .faq-card-icon,
+.faq-card.active .faq-card-icon,
 .faq-card-header:not(.collapsed) .faq-card-icon {
     color: var(--white) !important;
 }
@@ -551,6 +554,7 @@
     transition: color 0.3s ease;
 }
 
+.faq-card.active .faq-question,
 .faq-card-header:not(.collapsed) .faq-question {
     color: var(--primary-color);
 }
@@ -571,6 +575,7 @@
     color: var(--primary-color);
 }
 
+.faq-card.active .faq-toggle-btn,
 .faq-card-header:not(.collapsed) .faq-toggle-btn {
     background-color: var(--primary-color);
     color: var(--white);
